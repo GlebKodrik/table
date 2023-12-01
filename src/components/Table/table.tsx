@@ -95,7 +95,6 @@ export const Table: React.FC<TTableProps> = ({ columns, data, ...props }) => {
                 {row.getVisibleCells().map((cell) => (
                   <td
                     key={cell.id}
-                    style={{ width: cell.column.getSize() }}
                     className={styles.td}
                   >
                     <TableCell cell={cell} />

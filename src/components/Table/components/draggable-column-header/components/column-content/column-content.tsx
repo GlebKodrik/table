@@ -18,7 +18,7 @@ export const ColumnContent: React.FC<TColumnContentProps> = ({ header }) => {
       : undefined;
 
   const { isOneLineColumn } = useContext(TableProvider);
-  return title ? (
+  return (
     <Text
       title={title}
       className={cn(styles.content, {
@@ -29,10 +29,8 @@ export const ColumnContent: React.FC<TColumnContentProps> = ({ header }) => {
       size="xs"
       lineHeight="s"
     >
-      {title}
+      {!header.isPlaceholder &&
+        flexRender(header.column.columnDef.header, header.getContext())}
     </Text>
-  ) : (
-    !header.isPlaceholder &&
-      flexRender(header.column.columnDef.header, header.getContext())
   );
 };

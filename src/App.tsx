@@ -5,37 +5,36 @@ import { makeData } from './components/utils/makeData';
 
 const columnHelper = createColumnHelper<any>();
 const columns = [
-  columnHelper.group({
-    id: 'hello',
-    header: 'Привет',
-    // footer: props => props.column.id,
-  }),
-  columnHelper.group({
-    header: 'Info',
-    footer: (props) => props.column.id,
+  {
+    accessorKey: 'firstName',
+    id: 'firstName',
+    header: 'Имя',
+    cell: (info) => info.getValue(),
+  },
+  {
+    id: 'lastName',
+    header: 'few',
     columns: [
-      columnHelper.accessor('age', {
-        header: 'Age',
-      }),
-      columnHelper.group({
-        header: 'More Info',
-        columns: [
-          columnHelper.accessor('visits', {
-            header: 'Visits',
-            footer: (props) => props.column.id,
-          }),
-          columnHelper.accessor('status', {
-            header: 'Status',
-            footer: (props) => props.column.id,
-          }),
-          columnHelper.accessor('progress', {
-            header: 'Profile Progress',
-            footer: (props) => props.column.id,
-          }),
-        ],
-      }),
+      {
+        accessorKey: 'age',
+        id: 'ag3e',
+        header: 'Количество годов',
+      },
     ],
-  }),
+  },
+  {
+    accessorKey: 'visits',
+    id: 'visits',
+    header: 'Визит',
+    columns: [
+      {
+        accessorKey: 'status',
+        id: 'status',
+        header: 'Статус по жизни',
+        footer: (props) => props.column.id,
+      },
+    ],
+  },
 ];
 const regenerateData = makeData(20);
 
