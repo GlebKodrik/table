@@ -1,0 +1,94 @@
+import './table.scss';
+
+import { cnMixCard } from '@consta/uikit/MixCard';
+import {
+  ColumnDef,
+  ColumnOrderState,
+  getCoreRowModel,
+  useReactTable,
+} from '@tanstack/react-table';
+import { DraggableColumnHeader } from 'components/Table/components/draggable-column-header';
+import { TableCell } from 'components/Table/components/table-cell';
+import React from 'react';
+
+import {
+  TableProvider,
+  TableProviderProps,
+} from '@/components/Table/providers/table-provider';
+
+import styles from './table.module.scss';
+
+type TTableProps = {
+  columns: ColumnDef<unknown, any>[];
+  data: any[];
+} & TableProviderProps;
+
+const MIN_SIZE_COLUMN = 52;
+export const Table: React.FC<TTableProps> = ({ columns, data, ...props }) => {
+  const [columnOrder, setColumnOrder] = React.useState<ColumnOrderState>(
+    columns.map((column) => column.id as string),
+  );
+
+  const table = useReactTable({
+    data,
+    columns,
+    columnResizeMode: 'onChange',
+    state: {
+      columnOrder,
+    },
+    onColumnOrderChange: setColumnOrder,
+    getCoreRowModel: getCoreRowModel(),
+    defaultColumn: {
+      minSize: MIN_SIZE_COLUMN,
+    },
+  });
+
+  return (
+    <TableProvider.Provider value={props}>
+      <div
+        className={cnMixCard({ border: true, form: 'round' }, [
+          styles.wrapperTable,
+          styles.borderBottom,
+        ])}
+      >
+        <table
+          className={styles.table}
+          {...{
+            style: {
+              width: table.getCenterTotalSize(),
+            },
+          }}
+        >
+          <thead className={styles.thead}>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <tr key={headerGroup.id}>
+                {headerGroup.headers.map((header) => (
+                  <DraggableColumnHeader
+                    key={header.id}
+                    header={header}
+                    table={table}
+                  />
+                ))}
+              </tr>
+            ))}
+          </thead>
+          <tbody>
+            {table.getRowModel().rows.map((row) => (
+              <tr key={row.id}>
+                {row.getVisibleCells().map((cell) => (
+                  <td
+                    key={cell.id}
+                    style={{ width: cell.column.getSize() }}
+                    className={styles.td}
+                  >
+                    <TableCell cell={cell} />
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </TableProvider.Provider>
+  );
+};

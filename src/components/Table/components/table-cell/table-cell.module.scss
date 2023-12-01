@@ -1,0 +1,17 @@
+.text-right {
+  text-align: right;
+}
+
+.link {
+  text-decoration: none;
+}
+
+
+.present-cell {
+  padding-top: var(--space-s);
+}
+
+.disabled  {
+  height: 100%;
+  background-color: var(--color-deleted-row);
+}

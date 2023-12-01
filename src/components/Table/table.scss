@@ -1,0 +1,20 @@
+table,
+tbody,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+td {
+  border-right: 1px solid rgb(0 65 102 / 20%);
+  border-bottom: 1px solid rgb(0 65 102 / 20%);
+
+  &:last-child {
+    border-right: none;
+  }
+}
+

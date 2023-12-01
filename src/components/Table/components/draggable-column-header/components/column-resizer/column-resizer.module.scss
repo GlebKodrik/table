@@ -1,0 +1,18 @@
+.last-thead {
+  right: -2px;
+}
+
+.resizer {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  height: 60%;
+  width: 1px;
+  transform: translate(-50%, -50%);
+  background-color: rgb(255 255 255 / 20%);
+  cursor: col-resize;
+  user-select: none;
+  touch-action: none;
+  z-index: 100;
+}
+

@@ -1,0 +1,75 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "warnOnUnsupportedTypeScriptVersion": false,
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["unused-imports", "simple-import-sort", "prettier"],
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "airbnb-typescript",
+    "prettier"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "no-console": ["warn", {"allow": ["error", "warn"]}],
+    "no-prototype-builtins": "off",
+    "linebreak-style": "off",
+    "max-params": ["error", 3],
+    "max-lines": ["error", { "max": 350, "skipBlankLines": true}],
+    "react/function-component-definition": "off",
+    "import/prefer-default-export": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-no-constructed-context-values": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/control-has-associated-label": "off",
+    "react-hooks/rules-of-hooks": "off",
+    "react/jsx-no-useless-fragment": "off",
+    "no-param-reassign": "off",
+    "react/no-array-index-key": "off",
+    "arrow-body-style": "off",
+    "no-unused-vars": "off",
+    "unused-imports/no-unused-imports": "error",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "import/extensions": "off",
+    "import/no-extraneous-dependencies": "off",
+    "consistent-return": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "react/prop-types": "off",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
+    ],
+    "react/jsx-first-prop-new-line": [1, "multiline"],
+    "react/jsx-max-props-per-line": [1, { "maximum": 1 }],
+    "react/require-default-props": 0
+  },
+  "overrides": [
+    {
+      "files": ["**/src/**/*.test.{ts,tsx}"],
+      "rules": {
+        "max-lines": "off"
+      }
+    }
+  ],
+  "ignorePatterns": ["**/src/custom-components/ConstaForkedTable", "**/src/custom-components/Table"]
+}
