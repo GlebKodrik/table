@@ -1,0 +1,1014 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component ControlTable ControlTable children render with parameters 1`] = `
+<DocumentFragment>
+  <div
+    class="wrapper wrapperWithSelect"
+  >
+    <div
+      class="wrapperSelect"
+    >
+      <div
+        class="Text Text_lineHeight_m Text_size_m Text_view_primary"
+      >
+        Показывать строк
+      </div>
+      <div
+        class="select"
+      >
+        <div
+          class="Select Select_labelPosition_top Select_size_s Select_view_default Select_type_select"
+        >
+          <div
+            class="Select-Body"
+          >
+            <div
+              class="Select-SelectContainer Select-SelectContainer_view_default Select-SelectContainer_form_default"
+            >
+              <div
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                class="Select-Control"
+              >
+                <div
+                  class="Select-ControlInner"
+                >
+                  <div
+                    class="Select-ControlValueContainer"
+                  >
+                    <input
+                      class="Select-FakeField"
+                      readonly=""
+                      type="button"
+                    />
+                    <span
+                      class="Select-ControlValue"
+                      title="30"
+                    >
+                      30
+                    </span>
+                  </div>
+                </div>
+                <span
+                  class="Select-Indicators"
+                >
+                  <button
+                    class="Select-IndicatorsDropdown"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="icons--Icon icons--Icon_size_s icons--Icon_color_mono IconSelect Select-DropdownIndicatorIcon"
+                    >
+                      <svg
+                        class="icons--Icon-Svg"
+                        viewBox="0 0 16 16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M3.5 5 8 10l4.5-5h-9z"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav
+      class="Pagination Pagination_form_default Pagination_size_s Pagination_position_center"
+    >
+      <div
+        class="Pagination-PrevPage"
+      >
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default Button_withIcon MixFocus Pagination-ItemLeft Pagination-ItemLeft_show"
+          type="button"
+        >
+          <span
+            class="icons--Icon icons--Icon_size_xs icons--Icon_color_mono IconBackward Button-Icon Button-Icon_position_left"
+          >
+            <svg
+              class="icons--Icon-Svg"
+              viewBox="0 0 12 12"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m2.71 6 2.647-2.646-.707-.708L.796 6.5l3.854 3.854.707-.708L2.711 7H10V6H2.71z"
+              />
+            </svg>
+          </span>
+          <span
+            class="Button-Label"
+          >
+            Назад
+          </span>
+        </button>
+        <div
+          class="Text Text_lineHeight_m Text_size_xs Text_view_ghost Pagination-TipLeft"
+        />
+      </div>
+      <div
+        class="Pagination-Pages"
+      >
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="1"
+          type="button"
+        >
+          1
+        </button>
+        <div
+          class="Text Text_lineHeight_m Text_size_s Text_view_linkMinor Pagination-More"
+        >
+          ...
+        </div>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="5"
+          type="button"
+        >
+          5
+        </button>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="6"
+          type="button"
+        >
+          6
+        </button>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item Pagination-Item_isActive"
+          title="7"
+          type="button"
+        >
+          7
+        </button>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="8"
+          type="button"
+        >
+          8
+        </button>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="9"
+          type="button"
+        >
+          9
+        </button>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="10"
+          type="button"
+        >
+          10
+        </button>
+        <div
+          class="Text Text_lineHeight_m Text_size_s Text_view_linkMinor Pagination-More"
+        >
+          ...
+        </div>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="1000"
+          type="button"
+        >
+          1000
+        </button>
+      </div>
+      <div
+        class="Pagination-NextPage"
+      >
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default Button_withIcon MixFocus Pagination-ItemRight Pagination-ItemRight_show"
+          type="button"
+        >
+          <span
+            class="Button-Label"
+          >
+            Вперёд
+          </span>
+          <span
+            class="icons--Icon icons--Icon_size_xs icons--Icon_color_mono IconForward Button-Icon Button-Icon_position_right"
+          >
+            <svg
+              class="icons--Icon-Svg"
+              viewBox="0 0 12 12"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.293 7H1V6h7.293L5.646 3.354l.708-.708L10.207 6.5l-3.853 3.854-.708-.708L8.293 7z"
+              />
+            </svg>
+          </span>
+        </button>
+        <div
+          class="Text Text_lineHeight_m Text_size_xs Text_view_ghost Pagination-TipRight"
+        />
+      </div>
+    </nav>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Component ControlTable ControlTable render with isDisabled 1`] = `
+<DocumentFragment>
+  <div
+    class="wrapper wrapperWithSelect"
+  >
+    <div
+      class="wrapperSelect"
+    >
+      <div
+        class="Text Text_lineHeight_m Text_size_m Text_view_primary"
+      >
+        Показывать строк
+      </div>
+      <div
+        class="select"
+      >
+        <div
+          class="Select Select_labelPosition_top Select_size_s Select_view_default Select_type_select disabledSelect"
+        >
+          <div
+            class="Select-Body"
+          >
+            <div
+              class="Select-SelectContainer Select-SelectContainer_view_default Select-SelectContainer_form_default Select-SelectContainer_disabled"
+            >
+              <div
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                class="Select-Control"
+              >
+                <div
+                  class="Select-ControlInner"
+                >
+                  <div
+                    class="Select-ControlValueContainer"
+                  >
+                    <input
+                      class="Select-FakeField"
+                      readonly=""
+                      type="button"
+                    />
+                    <span
+                      class="Select-ControlValue"
+                      title="30"
+                    >
+                      30
+                    </span>
+                  </div>
+                </div>
+                <span
+                  class="Select-Indicators"
+                >
+                  <button
+                    class="Select-IndicatorsDropdown"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="icons--Icon icons--Icon_size_s icons--Icon_color_mono IconSelect Select-DropdownIndicatorIcon"
+                    >
+                      <svg
+                        class="icons--Icon-Svg"
+                        viewBox="0 0 16 16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M3.5 5 8 10l4.5-5h-9z"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav
+      class="Pagination Pagination_form_default Pagination_size_s Pagination_position_center disabled"
+    >
+      <div
+        class="Pagination-PrevPage"
+      >
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default Button_withIcon MixFocus Pagination-ItemLeft Pagination-ItemLeft_show"
+          type="button"
+        >
+          <span
+            class="icons--Icon icons--Icon_size_xs icons--Icon_color_mono IconBackward Button-Icon Button-Icon_position_left"
+          >
+            <svg
+              class="icons--Icon-Svg"
+              viewBox="0 0 12 12"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m2.71 6 2.647-2.646-.707-.708L.796 6.5l3.854 3.854.707-.708L2.711 7H10V6H2.71z"
+              />
+            </svg>
+          </span>
+          <span
+            class="Button-Label"
+          >
+            Назад
+          </span>
+        </button>
+        <div
+          class="Text Text_lineHeight_m Text_size_xs Text_view_ghost Pagination-TipLeft"
+        />
+      </div>
+      <div
+        class="Pagination-Pages"
+      >
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="1"
+          type="button"
+        >
+          1
+        </button>
+        <div
+          class="Text Text_lineHeight_m Text_size_s Text_view_linkMinor Pagination-More"
+        >
+          ...
+        </div>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="5"
+          type="button"
+        >
+          5
+        </button>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="6"
+          type="button"
+        >
+          6
+        </button>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item Pagination-Item_isActive"
+          title="7"
+          type="button"
+        >
+          7
+        </button>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="8"
+          type="button"
+        >
+          8
+        </button>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="9"
+          type="button"
+        >
+          9
+        </button>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="10"
+          type="button"
+        >
+          10
+        </button>
+        <div
+          class="Text Text_lineHeight_m Text_size_s Text_view_linkMinor Pagination-More"
+        >
+          ...
+        </div>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="1000"
+          type="button"
+        >
+          1000
+        </button>
+      </div>
+      <div
+        class="Pagination-NextPage"
+      >
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default Button_withIcon MixFocus Pagination-ItemRight Pagination-ItemRight_show"
+          type="button"
+        >
+          <span
+            class="Button-Label"
+          >
+            Вперёд
+          </span>
+          <span
+            class="icons--Icon icons--Icon_size_xs icons--Icon_color_mono IconForward Button-Icon Button-Icon_position_right"
+          >
+            <svg
+              class="icons--Icon-Svg"
+              viewBox="0 0 12 12"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.293 7H1V6h7.293L5.646 3.354l.708-.708L10.207 6.5l-3.853 3.854-.708-.708L8.293 7z"
+              />
+            </svg>
+          </span>
+        </button>
+        <div
+          class="Text Text_lineHeight_m Text_size_xs Text_view_ghost Pagination-TipRight"
+        />
+      </div>
+    </nav>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Component ControlTable ControlTable render with only pagination 1`] = `
+<DocumentFragment>
+  <div
+    class="wrapper"
+  >
+    <nav
+      class="Pagination Pagination_form_default Pagination_size_s Pagination_position_center"
+    >
+      <div
+        class="Pagination-PrevPage"
+      >
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default Button_withIcon MixFocus Pagination-ItemLeft Pagination-ItemLeft_show"
+          type="button"
+        >
+          <span
+            class="icons--Icon icons--Icon_size_xs icons--Icon_color_mono IconBackward Button-Icon Button-Icon_position_left"
+          >
+            <svg
+              class="icons--Icon-Svg"
+              viewBox="0 0 12 12"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m2.71 6 2.647-2.646-.707-.708L.796 6.5l3.854 3.854.707-.708L2.711 7H10V6H2.71z"
+              />
+            </svg>
+          </span>
+          <span
+            class="Button-Label"
+          >
+            Назад
+          </span>
+        </button>
+        <div
+          class="Text Text_lineHeight_m Text_size_xs Text_view_ghost Pagination-TipLeft"
+        />
+      </div>
+      <div
+        class="Pagination-Pages"
+      >
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="1"
+          type="button"
+        >
+          1
+        </button>
+        <div
+          class="Text Text_lineHeight_m Text_size_s Text_view_linkMinor Pagination-More"
+        >
+          ...
+        </div>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="5"
+          type="button"
+        >
+          5
+        </button>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="6"
+          type="button"
+        >
+          6
+        </button>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item Pagination-Item_isActive"
+          title="7"
+          type="button"
+        >
+          7
+        </button>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="8"
+          type="button"
+        >
+          8
+        </button>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="9"
+          type="button"
+        >
+          9
+        </button>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="10"
+          type="button"
+        >
+          10
+        </button>
+        <div
+          class="Text Text_lineHeight_m Text_size_s Text_view_linkMinor Pagination-More"
+        >
+          ...
+        </div>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="1000"
+          type="button"
+        >
+          1000
+        </button>
+      </div>
+      <div
+        class="Pagination-NextPage"
+      >
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default Button_withIcon MixFocus Pagination-ItemRight Pagination-ItemRight_show"
+          type="button"
+        >
+          <span
+            class="Button-Label"
+          >
+            Вперёд
+          </span>
+          <span
+            class="icons--Icon icons--Icon_size_xs icons--Icon_color_mono IconForward Button-Icon Button-Icon_position_right"
+          >
+            <svg
+              class="icons--Icon-Svg"
+              viewBox="0 0 12 12"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.293 7H1V6h7.293L5.646 3.354l.708-.708L10.207 6.5l-3.853 3.854-.708-.708L8.293 7z"
+              />
+            </svg>
+          </span>
+        </button>
+        <div
+          class="Text Text_lineHeight_m Text_size_xs Text_view_ghost Pagination-TipRight"
+        />
+      </div>
+    </nav>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Component ControlTable ControlTable render with only select 1`] = `
+<DocumentFragment>
+  <div
+    class="wrapper wrapperWithSelect"
+  >
+    <div
+      class="wrapperSelect"
+    >
+      <div
+        class="Text Text_lineHeight_m Text_size_m Text_view_primary"
+      >
+        Показывать строк
+      </div>
+      <div
+        class="select"
+      >
+        <div
+          class="Select Select_labelPosition_top Select_size_s Select_view_default Select_type_select"
+        >
+          <div
+            class="Select-Body"
+          >
+            <div
+              class="Select-SelectContainer Select-SelectContainer_view_default Select-SelectContainer_form_default"
+            >
+              <div
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                class="Select-Control"
+              >
+                <div
+                  class="Select-ControlInner"
+                >
+                  <div
+                    class="Select-ControlValueContainer"
+                  >
+                    <input
+                      class="Select-FakeField"
+                      readonly=""
+                      type="button"
+                    />
+                    <span
+                      class="Select-ControlValue"
+                      title="30"
+                    >
+                      30
+                    </span>
+                  </div>
+                </div>
+                <span
+                  class="Select-Indicators"
+                >
+                  <button
+                    class="Select-IndicatorsDropdown"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="icons--Icon icons--Icon_size_s icons--Icon_color_mono IconSelect Select-DropdownIndicatorIcon"
+                    >
+                      <svg
+                        class="icons--Icon-Svg"
+                        viewBox="0 0 16 16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M3.5 5 8 10l4.5-5h-9z"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Component ControlTable ControlTable render with only totalCount 1`] = `
+<DocumentFragment>
+  <div
+    class="wrapper lastElement"
+  />
+</DocumentFragment>
+`;
+
+exports[`Component ControlTable ControlTable render with pagination and totalCount 1`] = `
+<DocumentFragment>
+  <div
+    class="wrapper"
+  >
+    <nav
+      class="Pagination Pagination_form_default Pagination_size_s Pagination_position_center"
+    >
+      <div
+        class="Pagination-PrevPage"
+      >
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default Button_withIcon MixFocus Pagination-ItemLeft Pagination-ItemLeft_show"
+          type="button"
+        >
+          <span
+            class="icons--Icon icons--Icon_size_xs icons--Icon_color_mono IconBackward Button-Icon Button-Icon_position_left"
+          >
+            <svg
+              class="icons--Icon-Svg"
+              viewBox="0 0 12 12"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m2.71 6 2.647-2.646-.707-.708L.796 6.5l3.854 3.854.707-.708L2.711 7H10V6H2.71z"
+              />
+            </svg>
+          </span>
+          <span
+            class="Button-Label"
+          >
+            Назад
+          </span>
+        </button>
+        <div
+          class="Text Text_lineHeight_m Text_size_xs Text_view_ghost Pagination-TipLeft"
+        />
+      </div>
+      <div
+        class="Pagination-Pages"
+      >
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="1"
+          type="button"
+        >
+          1
+        </button>
+        <div
+          class="Text Text_lineHeight_m Text_size_s Text_view_linkMinor Pagination-More"
+        >
+          ...
+        </div>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="5"
+          type="button"
+        >
+          5
+        </button>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="6"
+          type="button"
+        >
+          6
+        </button>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item Pagination-Item_isActive"
+          title="7"
+          type="button"
+        >
+          7
+        </button>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="8"
+          type="button"
+        >
+          8
+        </button>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="9"
+          type="button"
+        >
+          9
+        </button>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="10"
+          type="button"
+        >
+          10
+        </button>
+        <div
+          class="Text Text_lineHeight_m Text_size_s Text_view_linkMinor Pagination-More"
+        >
+          ...
+        </div>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="1000"
+          type="button"
+        >
+          1000
+        </button>
+      </div>
+      <div
+        class="Pagination-NextPage"
+      >
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default Button_withIcon MixFocus Pagination-ItemRight Pagination-ItemRight_show"
+          type="button"
+        >
+          <span
+            class="Button-Label"
+          >
+            Вперёд
+          </span>
+          <span
+            class="icons--Icon icons--Icon_size_xs icons--Icon_color_mono IconForward Button-Icon Button-Icon_position_right"
+          >
+            <svg
+              class="icons--Icon-Svg"
+              viewBox="0 0 12 12"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.293 7H1V6h7.293L5.646 3.354l.708-.708L10.207 6.5l-3.853 3.854-.708-.708L8.293 7z"
+              />
+            </svg>
+          </span>
+        </button>
+        <div
+          class="Text Text_lineHeight_m Text_size_xs Text_view_ghost Pagination-TipRight"
+        />
+      </div>
+    </nav>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Component ControlTable ControlTable render with pagination zero page 1`] = `
+<DocumentFragment>
+  <div
+    class="wrapper"
+  >
+    <nav
+      class="Pagination Pagination_form_default Pagination_size_s Pagination_position_center"
+    >
+      <div
+        class="Pagination-Pages"
+      >
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item Pagination-Item_isActive"
+          title="1"
+          type="button"
+        >
+          1
+        </button>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="2"
+          type="button"
+        >
+          2
+        </button>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="3"
+          type="button"
+        >
+          3
+        </button>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="4"
+          type="button"
+        >
+          4
+        </button>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="5"
+          type="button"
+        >
+          5
+        </button>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="6"
+          type="button"
+        >
+          6
+        </button>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="7"
+          type="button"
+        >
+          7
+        </button>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="8"
+          type="button"
+        >
+          8
+        </button>
+        <div
+          class="Text Text_lineHeight_m Text_size_s Text_view_linkMinor Pagination-More"
+        >
+          ...
+        </div>
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default MixFocus Pagination-Item"
+          title="1000"
+          type="button"
+        >
+          1000
+        </button>
+      </div>
+      <div
+        class="Pagination-NextPage"
+      >
+        <button
+          class="Button Button_size_s Button_view_ghost Button_width_default Button_form_default Button_withIcon MixFocus Pagination-ItemRight Pagination-ItemRight_show"
+          type="button"
+        >
+          <span
+            class="Button-Label"
+          >
+            Вперёд
+          </span>
+          <span
+            class="icons--Icon icons--Icon_size_xs icons--Icon_color_mono IconForward Button-Icon Button-Icon_position_right"
+          >
+            <svg
+              class="icons--Icon-Svg"
+              viewBox="0 0 12 12"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.293 7H1V6h7.293L5.646 3.354l.708-.708L10.207 6.5l-3.853 3.854-.708-.708L8.293 7z"
+              />
+            </svg>
+          </span>
+        </button>
+        <div
+          class="Text Text_lineHeight_m Text_size_xs Text_view_ghost Pagination-TipRight"
+        />
+      </div>
+    </nav>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Component ControlTable ControlTable render with select and totalCount 1`] = `
+<DocumentFragment>
+  <div
+    class="wrapper wrapperWithSelect"
+  >
+    <div
+      class="wrapperSelect"
+    >
+      <div
+        class="Text Text_lineHeight_m Text_size_m Text_view_primary"
+      >
+        Показывать строк
+      </div>
+      <div
+        class="select"
+      >
+        <div
+          class="Select Select_labelPosition_top Select_size_s Select_view_default Select_type_select"
+        >
+          <div
+            class="Select-Body"
+          >
+            <div
+              class="Select-SelectContainer Select-SelectContainer_view_default Select-SelectContainer_form_default"
+            >
+              <div
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                class="Select-Control"
+              >
+                <div
+                  class="Select-ControlInner"
+                >
+                  <div
+                    class="Select-ControlValueContainer"
+                  >
+                    <input
+                      class="Select-FakeField"
+                      readonly=""
+                      type="button"
+                    />
+                    <span
+                      class="Select-ControlValue"
+                      title="30"
+                    >
+                      30
+                    </span>
+                  </div>
+                </div>
+                <span
+                  class="Select-Indicators"
+                >
+                  <button
+                    class="Select-IndicatorsDropdown"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="icons--Icon icons--Icon_size_s icons--Icon_color_mono IconSelect Select-DropdownIndicatorIcon"
+                    >
+                      <svg
+                        class="icons--Icon-Svg"
+                        viewBox="0 0 16 16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M3.5 5 8 10l4.5-5h-9z"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Component ControlTable ControlTable render without parameters 1`] = `
+<DocumentFragment>
+  <div
+    class="wrapper lastElement"
+  />
+</DocumentFragment>
+`;

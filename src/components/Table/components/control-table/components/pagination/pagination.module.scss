@@ -1,0 +1,9 @@
+.disabled {
+  div {
+    cursor: not-allowed;
+
+    button {
+      pointer-events: none;
+    }
+  }
+}

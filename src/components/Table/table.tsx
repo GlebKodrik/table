@@ -12,6 +12,7 @@ import { DraggableColumnHeader } from 'components/Table/components/draggable-col
 import { TableCell } from 'components/Table/components/table-cell';
 import React, { useRef } from 'react';
 
+import { ControlTable } from '@/components/Table/components/control-table';
 import {
   TableProvider,
   TableProviderProps,
@@ -105,6 +106,7 @@ export const Table: React.FC<TTableProps> = ({ columns, data, ...props }) => {
           </tbody>
         </table>
       </div>
+      <ControlTable />
     </TableProvider.Provider>
   );
 };

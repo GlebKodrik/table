@@ -38,6 +38,10 @@ const regenerateData = makeData(20);
 function App() {
   return (
     <Table
+      onPaginationChange={() => {}}
+      page={0}
+      onPerPageChange={() => {}}
+      totalCount={200}
       isOneLineColumn={false}
       columns={defaultColumns}
       data={regenerateData}
