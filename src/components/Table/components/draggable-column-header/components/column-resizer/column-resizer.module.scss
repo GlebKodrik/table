@@ -4,15 +4,20 @@
 
 .resizer {
   position: absolute;
-  right: 0;
   top: 50%;
+  right: -6px;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  width: 6px;
   height: 60%;
-  width: 1px;
   transform: translate(-50%, -50%);
-  background-color: rgb(255 255 255 / 20%);
   cursor: col-resize;
   user-select: none;
   touch-action: none;
-  z-index: 100;
 }
 
+.trigger {
+  width: 1px;
+  background-color: rgb(255 255 255 / 20%);
+}

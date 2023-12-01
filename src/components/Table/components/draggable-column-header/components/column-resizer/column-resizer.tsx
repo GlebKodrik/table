@@ -22,6 +22,8 @@ export const ColumnResizer: React.FC<TColumnResizerProps> = ({
       className={cn(styles.resizer, {
         [styles.lastThead]: isLastThead,
       })}
-    />
+    >
+      <div className={styles.trigger} />
+    </div>
   );
 };

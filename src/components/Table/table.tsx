@@ -26,6 +26,9 @@ type TTableProps = {
 
 const MIN_SIZE_COLUMN = 52;
 export const Table: React.FC<TTableProps> = ({ columns, data, ...props }) => {
+  const containerRef = useRef<HTMLTableSectionElement>(null);
+  const { height } = useComponentSize(containerRef);
+
   const [columnOrder, setColumnOrder] = React.useState<ColumnOrderState>(
     columns.map((column) => column.id as string),
   );
@@ -43,9 +46,6 @@ export const Table: React.FC<TTableProps> = ({ columns, data, ...props }) => {
       minSize: MIN_SIZE_COLUMN,
     },
   });
-
-  const containerRef = useRef<HTMLTableSectionElement>(null);
-  const { height } = useComponentSize(containerRef);
 
   return (
     <TableProvider.Provider value={props}>
