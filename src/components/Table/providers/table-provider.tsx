@@ -1,9 +1,9 @@
 import { createContext } from 'react';
 
 export type TableProviderProps = {
-  isSingleLineColumnText?: boolean;
+  isOneLineColumn?: boolean;
 };
 
 export const TableProvider = createContext<TableProviderProps>({
-  isSingleLineColumnText: true,
+  isOneLineColumn: false,
 });

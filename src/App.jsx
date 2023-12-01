@@ -38,6 +38,7 @@ const regenerateData = makeData(20);
 function App() {
   return (
     <Table
+      isOneLineColumn={false}
       columns={defaultColumns}
       data={regenerateData}
     />

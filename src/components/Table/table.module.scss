@@ -1,5 +1,6 @@
 .wrapper {
   &-table {
+    position: relative;
     flex: 1 1 auto;
     height: 100%;
     min-height: 144px;
@@ -26,7 +27,6 @@
   top: 0;
   z-index: 1;
   background: rgb(0,113,178);
-  box-shadow: 0 0 0 1px #00416633;
 }
 
 .td {

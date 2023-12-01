@@ -1,6 +1,7 @@
 import './table.scss';
 
 import { cnMixCard } from '@consta/uikit/MixCard';
+import { useComponentSize } from '@consta/uikit/useComponentSize';
 import {
   ColumnDef,
   ColumnOrderState,
@@ -9,7 +10,7 @@ import {
 } from '@tanstack/react-table';
 import { DraggableColumnHeader } from 'components/Table/components/draggable-column-header';
 import { TableCell } from 'components/Table/components/table-cell';
-import React from 'react';
+import React, { useRef } from 'react';
 
 import {
   TableProvider,
@@ -43,6 +44,9 @@ export const Table: React.FC<TTableProps> = ({ columns, data, ...props }) => {
     },
   });
 
+  const containerRef = useRef<HTMLTableSectionElement>(null);
+  const { height } = useComponentSize(containerRef);
+
   return (
     <TableProvider.Provider value={props}>
       <div
@@ -51,6 +55,15 @@ export const Table: React.FC<TTableProps> = ({ columns, data, ...props }) => {
           styles.borderBottom,
         ])}
       >
+        <div
+          style={{
+            height,
+            background: 'rgb(0,113,178)',
+            position: 'absolute',
+            width: '100%',
+            right: 0,
+          }}
+        />
         <table
           className={styles.table}
           {...{
@@ -59,7 +72,10 @@ export const Table: React.FC<TTableProps> = ({ columns, data, ...props }) => {
             },
           }}
         >
-          <thead className={styles.thead}>
+          <thead
+            className={styles.thead}
+            ref={containerRef}
+          >
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (

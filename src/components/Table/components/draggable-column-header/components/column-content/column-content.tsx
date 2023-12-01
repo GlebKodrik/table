@@ -17,12 +17,12 @@ export const ColumnContent: React.FC<TColumnContentProps> = ({ header }) => {
       ? header.column.columnDef.header
       : undefined;
 
-  const { isSingleLineColumnText } = useContext(TableProvider);
+  const { isOneLineColumn } = useContext(TableProvider);
   return title ? (
     <Text
       title={title}
       className={cn(styles.content, {
-        [styles.oneLine]: isSingleLineColumnText,
+        [styles.oneLine]: !isOneLineColumn,
       })}
       truncate
       weight="semibold"
