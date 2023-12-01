@@ -1,4 +1,9 @@
+import './global.scss';
+
 import { createColumnHelper } from '@tanstack/react-table';
+import { useState } from 'react';
+
+import { SELECT_ITEMS } from '@/components/Table/components/control-table/constants';
 
 import { Table } from './components/Table';
 import { makeData } from './components/utils/makeData';
@@ -39,13 +44,23 @@ const columns = [
 const regenerateData = makeData(20);
 
 function App() {
+  const [perPage, setPerPage] = useState(SELECT_ITEMS[0]);
+  const [page, setPage] = useState(0);
+  const onPerPageChange = (value) => {
+    setPerPage(value);
+  };
+  const onPaginationChange = (value) => {
+    setPage(value);
+  };
+
   return (
     <Table
-      onPaginationChange={() => {}}
-      page={0}
-      onPerPageChange={() => {}}
+      onPaginationChange={onPaginationChange}
+      page={page}
+      onPerPageChange={onPerPageChange}
+      perPage={perPage}
       totalCount={200}
-      isOneLineColumn={false}
+      isOneLineColumn
       columns={columns}
       data={regenerateData}
     />
