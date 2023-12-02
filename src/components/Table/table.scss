@@ -38,3 +38,9 @@ table,
 .tr {
   display: flex;
 }
+
+.tbody .tr {
+  &:hover {
+    background-color: rgba(0,32,51,.05);
+  }
+}

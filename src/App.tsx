@@ -12,7 +12,7 @@ import { makeData } from './components/utils/makeData';
 const columnHelper = createColumnHelper<any>();
 const columns = [
   {
-    header: 'Name',
+    header: 'Имя',
     columns: [
       {
         accessorKey: 'firstName',
@@ -36,18 +36,16 @@ const columns = [
       {
         accessorFn: (row) => row.lastName,
         id: 'lastName',
-        header: () => <span>Last Name</span>,
+        header: 'Фамилия',
       },
     ],
   },
   {
-    header: 'Info',
-    footer: (props) => props.column.id,
+    header: 'Информация',
     columns: [
       {
         accessorKey: 'age',
-        header: () => 'age',
-        footer: (props) => props.column.id,
+        header: 'Количество лет',
         meta: {
           collapseVisible: ['visits', 'status'],
         },
@@ -55,12 +53,11 @@ const columns = [
       {
         accessorKey: 'more',
         id: 'more',
-        header: 'More Info',
+        header: 'Больше информации',
         columns: [
           {
             accessorKey: 'visits',
-            header: () => <span>Visits</span>,
-            footer: (props) => props.column.id,
+            header: 'Визит',
           },
           {
             accessorKey: 'status',
@@ -75,7 +72,7 @@ const columns = [
           },
           {
             accessorKey: 'progress',
-            header: 'Profile Progress',
+            header: 'Профиль прогресс',
           },
         ],
       },
@@ -94,7 +91,7 @@ function App() {
   const onPaginationChange = (value) => {
     setPage(value);
   };
-
+  console.log(regenerateData);
   return (
     <div>
       <Table
@@ -289,6 +286,7 @@ function App() {
               },
             ],
           },
+          ...regenerateData,
         ]}
       />
     </div>
