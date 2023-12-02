@@ -1,7 +1,7 @@
 .wrapper {
   width: 180px;
 }
-  
+
 .list {
   position: relative;
   display: flex;
@@ -13,7 +13,7 @@
   text-align: left;
   border-radius: 4px;
 }
-  
+
 .item {
   width: 100%;
   padding: 8px 12px;
@@ -22,9 +22,14 @@
   border: none;
   outline: 0;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 
   &:hover {
       background: var(--color-control-bg-clear-hover);
   }
 }
-  
+
+.icon {
+  margin-right: 4px;
+}

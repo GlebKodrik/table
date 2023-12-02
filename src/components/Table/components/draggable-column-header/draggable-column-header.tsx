@@ -6,6 +6,7 @@ import { useDrag, useDrop } from 'react-dnd';
 import { ColumnOptions } from '@/components/Table/components/column-options';
 import { ColumnContent } from '@/components/Table/components/draggable-column-header/components/column-content';
 import { ColumnResizer } from '@/components/Table/components/draggable-column-header/components/column-resizer';
+import { HeaderProvider } from '@/components/Table/components/draggable-column-header/providers/header-provider';
 
 import styles from './components/column-content/column-content.module.scss';
 
@@ -72,39 +73,42 @@ export const DraggableColumnHeader: FC<{
       }}
       className="th"
     >
-      <div className={styles.column}>
-        <div
-          ref={(ref) => {
-            dragRef(ref);
-          }}
-        >
-          <ColumnContent
+      <HeaderProvider.Provider value={{ header }}>
+        <div className={styles.column}>
+          <div
+            ref={(ref) => {
+              dragRef(ref);
+            }}
+          >
+            <ColumnContent
+              header={header}
+              table={table}
+            />
+          </div>
+          {isShowMenu ? (
+            <ColumnOptions
+              header={header}
+              triggerClassName={cn(styles.trigger, {
+                [styles.lastColumnOptions]: isLastThead,
+              })}
+              columnName={columnAccessorKey}
+              // @ts-ignore
+              optionsColumns={{
+                activeColumnFilters: {},
+                columnFilters: {},
+                activeColumns: {},
+                sortColumns: {},
+              }}
+              column={column}
+              formatValues={() => 'Привет'}
+            />
+          ) : null}
+          <ColumnResizer
             header={header}
-            table={table}
+            isLastThead={isLastThead}
           />
         </div>
-        {isShowMenu ? (
-          <ColumnOptions
-            triggerClassName={cn(styles.trigger, {
-              [styles.lastColumnOptions]: isLastThead,
-            })}
-            columnName={columnAccessorKey}
-            // @ts-ignore
-            optionsColumns={{
-              activeColumnFilters: {},
-              columnFilters: {},
-              activeColumns: {},
-              sortColumns: {},
-            }}
-            column={column}
-            formatValues={() => 'Привет'}
-          />
-        ) : null}
-        <ColumnResizer
-          header={header}
-          isLastThead={isLastThead}
-        />
-      </div>
+      </HeaderProvider.Provider>
     </div>
   );
 };

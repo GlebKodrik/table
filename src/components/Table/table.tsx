@@ -36,6 +36,7 @@ export const Table: React.FC<TTableProps> = ({
   className,
   ...props
 }) => {
+  const [columnPinning, setColumnPinning] = React.useState({});
   const [columnVisibility, setColumnVisibility] = React.useState({});
   const containerRef = useRef<HTMLTableSectionElement>(null);
   const { height } = useComponentSize(containerRef);
@@ -54,10 +55,12 @@ export const Table: React.FC<TTableProps> = ({
       columnOrder,
       expanded,
       columnVisibility,
+      columnPinning,
     },
     onColumnVisibilityChange: setColumnVisibility,
     onExpandedChange: setExpanded,
     onColumnOrderChange: setColumnOrder,
+    onColumnPinningChange: setColumnPinning,
     getSubRows: (row) => (row as any).subRows,
     getExpandedRowModel: getExpandedRowModel(),
     getCoreRowModel: getCoreRowModel(),

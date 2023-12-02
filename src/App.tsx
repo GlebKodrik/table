@@ -12,6 +12,10 @@ import { makeData } from './components/utils/makeData';
 const columnHelper = createColumnHelper<any>();
 const columns = [
   {
+    accessorKey: 'visits',
+    header: 'Визит',
+  },
+  {
     header: 'Имя',
     columns: [
       {
@@ -56,10 +60,6 @@ const columns = [
         id: 'more',
         header: 'Больше информации',
         columns: [
-          {
-            accessorKey: 'visits',
-            header: 'Визит',
-          },
           {
             accessorKey: 'status',
             header: 'Status',

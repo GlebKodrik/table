@@ -137,11 +137,6 @@ export const ColumnOptions = ({
             <Freezing />
           </MenuItem>
         </SubMenu>
-        <Separator />
-        <MenuItem className={globalStyled.menuItem}>
-          Автоширина столбца
-        </MenuItem>
-        <Separator />
         <MenuItem className={globalStyled.menuItem}>
           Сброс настроек столбца
         </MenuItem>
