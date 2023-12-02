@@ -10,6 +10,7 @@ import {
   getExpandedRowModel,
   useReactTable,
 } from '@tanstack/react-table';
+import cn from 'classnames';
 import { DraggableColumnHeader } from 'components/Table/components/draggable-column-header';
 import { TableCell } from 'components/Table/components/table-cell';
 import React, { useRef } from 'react';
@@ -102,14 +103,18 @@ export const Table: React.FC<TTableProps> = ({
           <tbody>
             {table.getRowModel().rows.map((row) => (
               <tr key={row.id}>
-                {row.getVisibleCells().map((cell) => (
-                  <td
-                    key={cell.id}
-                    className={styles.td}
-                  >
-                    <TableCell cell={cell} />
-                  </td>
-                ))}
+                {row.getVisibleCells().map((cell) => {
+                  return (
+                    <td
+                      key={cell.id}
+                      className={cn(styles.td, {
+                        [styles.isOnly]: cell.row.original.isOnly,
+                      })}
+                    >
+                      <TableCell cell={cell} />
+                    </td>
+                  );
+                })}
               </tr>
             ))}
           </tbody>

@@ -27,19 +27,12 @@ td {
   }
 }
 
-
-
 table,
 .divTable {
   width: fit-content;
+  height: 1px;
 }
 
 .tr {
   display: flex;
 }
-
-tr,
-.tr {
-  width: fit-content;
-}
-

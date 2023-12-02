@@ -16,6 +16,9 @@ const columns = [
     columns: [
       {
         accessorKey: 'firstName',
+        meta: {
+          isGroup: true,
+        },
         header: ({ table }) => (
           <>
             <button
@@ -28,20 +31,11 @@ const columns = [
             First Name
           </>
         ),
-        meta: {
-          isGroup: true,
-        },
-        cell: ({ row, getValue }) => (
-          <div>
-            <>{getValue()}</>
-          </div>
-        ),
-        footer: (props) => props.column.id,
       },
       {
         accessorFn: (row) => row.lastName,
         id: 'lastName',
-        cell: (info) => info.getValue(),
+
         header: () => <span>Last Name</span>,
         footer: (props) => props.column.id,
       },
@@ -103,7 +97,164 @@ function App() {
         totalCount={200}
         isOneLineColumn
         columns={columns}
-        data={regenerateData}
+        data={[
+          {
+            isOnly: true,
+            firstName: 'Допустим вложенны элемент',
+            subRows: [
+              {
+                firstName: 'aftermath-g4ydv',
+                lastName: 'mixture-hykkg',
+                age: 11,
+                visits: 94,
+                progress: 70,
+                status: 'complicated',
+              },
+              {
+                firstName: 'aftermath-g4ydv',
+                lastName: 'mixture-hykkg',
+                age: 11,
+                visits: 94,
+                progress: 70,
+                status: 'complicated',
+              },
+              {
+                firstName: 'aftermath-g4ydv',
+                lastName: 'mixture-hykkg',
+                age: 11,
+                visits: 94,
+                progress: 70,
+                status: 'complicated',
+              },
+              {
+                firstName: 'aftermath-g4ydv',
+                lastName: 'mixture-hykkg',
+                age: 11,
+                visits: 94,
+                progress: 70,
+                status: 'complicated',
+              },
+              {
+                firstName: 'aftermath-g4ydv',
+                lastName: 'mixture-hykkg',
+                age: 11,
+                visits: 94,
+                progress: 70,
+                status: 'complicated',
+              },
+            ],
+          },
+          {
+            firstName: 'Вложенные элементы',
+            visits: 'Привет',
+            subRows: [
+              {
+                firstName: 'aftermath-g4ydv',
+                lastName: 'mixture-hykkg',
+                age: 11,
+                visits: 94,
+                progress: 70,
+                status: 'complicated',
+              },
+              {
+                firstName: 'aftermath-g4ydv',
+                lastName: 'mixture-hykkg',
+                age: 11,
+                visits: 94,
+                progress: 70,
+                status: 'complicated',
+              },
+              {
+                firstName: 'aftermath-g4ydv',
+                lastName: 'mixture-hykkg',
+                age: 11,
+                visits: 94,
+                progress: 70,
+                status: 'complicated',
+              },
+              {
+                firstName: 'aftermath-g4ydv',
+                lastName: 'mixture-hykkg',
+                age: 11,
+                visits: 94,
+                progress: 70,
+                status: 'complicated',
+              },
+              {
+                firstName: 'aftermath-g4ydv',
+                lastName: 'mixture-hykkg',
+                age: 11,
+                visits: 94,
+                progress: 70,
+                status: 'complicated',
+              },
+            ],
+          },
+          {
+            firstName: '0 помощи от Влада',
+            age: 'Нету',
+            subRows: [
+              {
+                firstName: 'Дурачек потому что',
+                lastName: 'mixture-hykkg',
+                age: 11,
+                visits: 94,
+                progress: 70,
+                status: 'complicated',
+                subRows: [
+                  {
+                    firstName: 'А еще козел',
+                    lastName: 'mixture-hykkg',
+                    age: 11,
+                    visits: 94,
+                    progress: 70,
+                    status: 'complicated',
+                  },
+                  {
+                    firstName: 'Даже нормально позвонить не может когда просят',
+                    lastName: 'mixture-hykkg',
+                    age: 11,
+                    visits: 94,
+                    progress: 70,
+                    status: 'complicated',
+                  },
+                ],
+              },
+              {
+                firstName: 'Полный не человек',
+                lastName: 'mixture-hykkg',
+                age: 11,
+                visits: 94,
+                progress: 70,
+                status: 'complicated',
+              },
+              {
+                firstName: 'Лижбы письюку дрочить',
+                lastName: 'mixture-hykkg',
+                age: 'Нету',
+                visits: 94,
+                progress: 70,
+                status: 'complicated',
+              },
+              {
+                firstName: 'Человек дождя',
+                lastName: 'mixture-hykkg',
+                age: 11,
+                visits: 94,
+                progress: 70,
+                status: 'complicated',
+              },
+              {
+                firstName: 'Человек муравей',
+                lastName: 'mixture-hykkg',
+                age: 11,
+                visits: 94,
+                progress: 70,
+                status: 'complicated',
+              },
+            ],
+          },
+        ]}
       />
     </div>
   );
