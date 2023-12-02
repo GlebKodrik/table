@@ -12,10 +12,6 @@ import { makeData } from './components/utils/makeData';
 const columnHelper = createColumnHelper<any>();
 const columns = [
   {
-    accessorKey: 'visits',
-    header: 'Визит',
-  },
-  {
     header: 'Имя',
     columns: [
       {
@@ -23,7 +19,6 @@ const columns = [
         meta: {
           isGroup: true,
         },
-        size: 300,
         header: ({ table }) => (
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <button
@@ -43,6 +38,10 @@ const columns = [
         header: 'Фамилия',
       },
     ],
+  },
+  {
+    accessorKey: 'visits',
+    header: 'Визит',
   },
   {
     header: 'Информация',
