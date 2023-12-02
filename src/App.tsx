@@ -1,85 +1,22 @@
 import './global.scss';
 
-import { Badge } from '@consta/uikit/Badge';
+import { Tabs } from '@consta/uikit/Tabs';
 import { createColumnHelper } from '@tanstack/react-table';
 import { useState } from 'react';
 
 import { SELECT_ITEMS } from '@/components/Table/components/control-table/constants';
+import { NoDrag } from '@/no-drag';
 
 import { Table } from './components/Table';
 import { makeData } from './components/utils/makeData';
 
 const columnHelper = createColumnHelper<any>();
-const columns = [
-  {
-    header: 'Имя',
-    columns: [
-      {
-        accessorKey: 'firstName',
-        meta: {
-          isGroup: true,
-        },
-        size: 300,
-        header: ({ table }) => (
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <button
-              {...{
-                onClick: table.getToggleAllRowsExpandedHandler(),
-              }}
-            >
-              {table.getIsAllRowsExpanded() ? '👇' : '👉'}
-            </button>{' '}
-            <div title="Первоначальное имя">Первоначальное имя</div>
-          </div>
-        ),
-      },
-      {
-        accessorFn: (row) => row.lastName,
-        id: 'lastName',
-        header: 'Фамилия',
-      },
-    ],
-  },
-  {
-    header: 'Информация',
-    columns: [
-      {
-        accessorKey: 'age',
-        header: 'Количество лет',
-        meta: {
-          collapseVisible: ['visits', 'status'],
-          isHaveMenu: false,
-        },
-      },
-      {
-        accessorKey: 'more',
-        id: 'more',
-        header: 'Больше информации',
-        columns: [
-          {
-            accessorKey: 'status',
-            header: 'Status',
-            cell: (props) => (
-              <Badge
-                size="s"
-                status="normal"
-                label="Черновик"
-              />
-            ),
-          },
-          {
-            accessorKey: 'progress',
-            header: 'Профиль прогресс',
-          },
-        ],
-      },
-    ],
-  },
-];
 
+const items: string[] = ['C Drag and Drop', 'Без Drag and drop'];
 const regenerateData = makeData(100, 5, 3);
-
+const getItemLabel = (label: string) => label;
 function App() {
+  const [value, setValue] = useState<string | null>(items[0]);
   const [perPage, setPerPage] = useState(SELECT_ITEMS[0]);
   const [page, setPage] = useState(0);
   const onPerPageChange = (value) => {
@@ -89,210 +26,82 @@ function App() {
     setPage(value);
   };
 
+  const renderTable = () => {
+    if (value === 'C Drag and Drop') {
+      return (
+        <div>
+          <Table
+            className="wrapper"
+            onPaginationChange={onPaginationChange}
+            page={page}
+            onPerPageChange={onPerPageChange}
+            perPage={perPage}
+            totalCount={500}
+            isOneLineColumn={false}
+            columns={[
+              {
+                accessorKey: 'firstName',
+                id: 'firstName',
+                header: 'First Name',
+                cell: (info) => info.getValue(),
+                footer: (props) => props.column.id,
+              },
+              {
+                accessorFn: (row) => row.lastName,
+                id: 'lastName',
+                cell: (info) => info.getValue(),
+                header: () => <span>Last Name</span>,
+                footer: (props) => props.column.id,
+              },
+              {
+                accessorKey: 'age',
+                id: 'age',
+                header: 'Age',
+                footer: (props) => props.column.id,
+              },
+
+              {
+                accessorKey: 'visits',
+                id: 'visits',
+                header: 'Visits',
+                footer: (props) => props.column.id,
+              },
+              {
+                accessorKey: 'status',
+                id: 'status',
+                header: 'Status',
+                footer: (props) => props.column.id,
+              },
+              {
+                accessorKey: 'progress',
+                id: 'progress',
+                header: 'Profile Progress',
+                footer: (props) => props.column.id,
+              },
+            ]}
+            data={[...makeData(500)]}
+          />
+        </div>
+      );
+    }
+    if (value === 'Без Drag and drop') {
+      return <NoDrag />;
+    }
+  };
+
   return (
-    <div>
-      <Table
-        className="wrapper"
-        onPaginationChange={onPaginationChange}
-        page={page}
-        onPerPageChange={onPerPageChange}
-        perPage={perPage}
-        totalCount={200}
-        isOneLineColumn={false}
-        columns={columns}
-        data={[
-          {
-            isOnly: true,
-            firstName: 'Допустим вложенны элемент',
-            subRows: [
-              {
-                firstName: 'aftermath-g4ydv',
-                lastName: 'mixture-hykkg',
-                age: 11,
-                visits: 94,
-                progress: 70,
-                status: 'complicated',
-              },
-              {
-                firstName: 'aftermath-g4ydv',
-                lastName: 'mixture-hykkg',
-                age: 11,
-                visits: 94,
-                progress: 70,
-                status: 'complicated',
-              },
-              {
-                firstName: 'aftermath-g4ydv',
-                lastName: 'mixture-hykkg',
-                age: 11,
-                visits: 94,
-                progress: 70,
-                status: 'complicated',
-              },
-              {
-                firstName: 'aftermath-g4ydv',
-                lastName: 'mixture-hykkg',
-                age: 11,
-                visits: 94,
-                progress: 70,
-                status: 'complicated',
-              },
-              {
-                firstName: 'aftermath-g4ydv',
-                lastName: 'mixture-hykkg',
-                age: 11,
-                visits: 94,
-                progress: 70,
-                status: 'complicated',
-              },
-            ],
-          },
-          {
-            firstName: 'Вложенные элементы',
-            visits: 'Привет',
-            subRows: [
-              {
-                firstName: 'aftermath-g4ydv',
-                lastName: 'mixture-hykkg',
-                age: 11,
-                visits: 94,
-                progress: 70,
-                status: 'complicated',
-              },
-              {
-                firstName: 'aftermath-g4ydv',
-                lastName: 'mixture-hykkg',
-                age: 11,
-                visits: 94,
-                progress: 70,
-                status: 'complicated',
-              },
-              {
-                firstName: 'aftermath-g4ydv',
-                lastName: 'mixture-hykkg',
-                age: 11,
-                visits: 94,
-                progress: 70,
-                status: 'complicated',
-              },
-              {
-                firstName: 'aftermath-g4ydv',
-                lastName: 'mixture-hykkg',
-                age: 11,
-                visits: 94,
-                progress: 70,
-                status: 'complicated',
-              },
-              {
-                firstName: 'aftermath-g4ydv',
-                lastName: 'mixture-hykkg',
-                age: 11,
-                visits: 94,
-                progress: 70,
-                status: 'complicated',
-              },
-            ],
-          },
-          {
-            firstName: '0 помощи от Влада',
-            age: 'Нету',
-            subRows: [
-              {
-                firstName: 'Дурачек потому что',
-                lastName: 'mixture-hykkg',
-                age: 11,
-                visits: 94,
-                progress: 70,
-                status: 'complicated',
-                subRows: [
-                  {
-                    firstName: 'А еще козел',
-                    lastName: 'mixture-hykkg',
-                    age: 11,
-                    visits: 94,
-                    progress: 70,
-                    status: 'complicated',
-                  },
-                  {
-                    firstName: 'Даже нормально позвонить не может когда просят',
-                    lastName: 'mixture-hykkg',
-                    age: 11,
-                    visits: 94,
-                    progress: 70,
-                    status: 'complicated',
-                  },
-                ],
-              },
-              {
-                firstName: 'Полный не человек',
-                lastName: 'mixture-hykkg',
-                age: 11,
-                visits: 94,
-                progress: 70,
-                status: 'complicated',
-              },
-              {
-                firstName: 'Лижбы письюку дрочить',
-                lastName: 'mixture-hykkg',
-                age: 'Нету',
-                visits: 94,
-                progress: 70,
-                status: 'complicated',
-              },
-              {
-                firstName: 'Человек дождя',
-                lastName: 'mixture-hykkg',
-                age: 11,
-                visits: 94,
-                progress: 70,
-                status: 'complicated',
-              },
-              {
-                firstName: 'Человек муравей',
-                lastName: 'mixture-hykkg',
-                age: 11,
-                visits: 94,
-                progress: 70,
-                status: 'complicated',
-              },
-              {
-                firstName: 'Ладно внес 1%',
-                lastName: 'mixture-hykkg',
-                age: 11,
-                visits: 94,
-                progress: 70,
-                status: 'complicated',
-              },
-            ],
-          },
-          {
-            firstName: 'Как дела у const таблицы ?',
-            lastName: 'mixture-hykkg',
-            age: 11,
-            visits: 94,
-            progress: 70,
-            status: 'complicated',
-            subRows: [
-              {
-                firstName: 'Все хорошо ?',
-                lastName: 'mixture-hykkg',
-                age: 11,
-                visits: 94,
-                progress: 70,
-                status: 'complicated',
-              },
-              {
-                firstName: 'Прошу не судить за текущую таблицу',
-              },
-              {
-                firstName: 'Под банкой пива писал за день',
-              },
-            ],
-          },
-          ...regenerateData,
-        ]}
+    <>
+      <Tabs
+        value={value}
+        onChange={({ value }) => setValue(value)}
+        items={items}
+        getItemLabel={getItemLabel}
+        style={{
+          marginBottom: 16,
+        }}
       />
-    </div>
+      {renderTable()}
+    </>
   );
 }
 
