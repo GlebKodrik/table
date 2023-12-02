@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 table,
 tbody,
 thead,
@@ -8,9 +12,10 @@ td {
   padding: 0;
   border: 0;
 }
+
 th {
-    border-bottom: 1px solid rgba(255, 255, 255, .2);
-    border-right: 1px solid rgba(255, 255, 255, .2);
+  border-bottom: 1px solid rgba(255, 255, 255, .2);
+  border-right: 1px solid rgba(255, 255, 255, .2);
 }
 
 td {
@@ -20,5 +25,21 @@ td {
   &:last-child {
     border-right: none;
   }
+}
+
+
+
+table,
+.divTable {
+  width: fit-content;
+}
+
+.tr {
+  display: flex;
+}
+
+tr,
+.tr {
+  width: fit-content;
 }
 

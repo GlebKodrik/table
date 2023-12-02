@@ -63,7 +63,6 @@ export const DraggableColumnHeader: FC<{
         dropRef(ref);
         previewRef(ref);
       }}
-      colSpan={header.colSpan}
       className={styles.column}
     >
       <div
