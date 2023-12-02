@@ -1934,7 +1934,7 @@
     prop-types "^15.7.2"
     react-transition-state "^2.1.0"
 
-"@tanstack/react-table@^8.9.3":
+"@tanstack/react-table@^8.10.7":
   version "8.10.7"
   resolved "https://registry.yarnpkg.com/@tanstack/react-table/-/react-table-8.10.7.tgz#733f4bee8cf5aa19582f944dd0fd3224b21e8c94"
   integrity sha512-bXhjA7xsTcsW8JPTTYlUg/FuBpn8MNjiEPhkNhIGCUR6iRQM2+WEco4OBpvDeVcR9SE+bmWLzdfiY7bCbCSVuA==
