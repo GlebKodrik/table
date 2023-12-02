@@ -86,13 +86,18 @@ export const ColumnOptions = ({
     menuRef?.current?.closeMenu();
   };
 
+  const closeModal = () => {
+    menuRef?.current?.closeMenu();
+  };
+
   const resetSettings = () => {
     header?.column.pin(false);
-    menuRef?.current?.closeMenu();
+    header?.column.getToggleGroupingHandler()();
+    closeModal();
   };
   const onClickGroup = () => {
     header?.column.getToggleGroupingHandler()();
-    menuRef?.current?.closeMenu();
+    closeModal();
   };
 
   return (
