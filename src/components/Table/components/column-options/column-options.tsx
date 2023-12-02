@@ -6,12 +6,13 @@ import { IconHamburger } from '@consta/uikit/IconHamburger';
 import {
   Menu,
   MenuButton,
+  MenuInstance,
   MenuItem,
   MenuProps,
   SubMenu,
 } from '@szhsin/react-menu';
 import cn from 'classnames';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 import styles from './column-options.module.scss';
 import { ColumnSort } from './components/column-sort';
@@ -29,6 +30,7 @@ export const ColumnOptions = ({
   column,
   formatValues,
 }: TProps) => {
+  const menuRef = useRef<MenuInstance>(null);
   const [isAllSelected, setIsAllSelected] = useState(false);
   const {
     requestGetDistinctFilters,
@@ -78,6 +80,9 @@ export const ColumnOptions = ({
     event.keepOpen = true;
   };
 
+  const closeSettingsModal = () => {
+    menuRef?.current?.closeMenu();
+  };
   return (
     <div className={cn(styles.menuContainer, triggerClassName)}>
       <Menu
@@ -105,6 +110,7 @@ export const ColumnOptions = ({
       </Menu>
 
       <Menu
+        instanceRef={menuRef}
         gap={4}
         onItemClick={onItemClick}
         menuButton={renderHamburgerMenu()}
@@ -134,7 +140,7 @@ export const ColumnOptions = ({
           }
         >
           <MenuItem>
-            <Freezing />
+            <Freezing closeSettingsModal={closeSettingsModal} />
           </MenuItem>
         </SubMenu>
         <MenuItem className={globalStyled.menuItem}>

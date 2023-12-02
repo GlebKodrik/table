@@ -5,16 +5,35 @@ import { HeaderProvider } from '@/components/Table/components/draggable-column-h
 
 import styles from './freezing.module.scss';
 
-export const Freezing = () => {
+type FreezingType = {
+  closeSettingsModal: () => void;
+};
+export const Freezing = ({ closeSettingsModal }: FreezingType) => {
   const { header } = useContext(HeaderProvider);
   const freezingItems = [
-    { name: 'Слева', onClick: () => header?.column.pin('left'), value: 'left' },
+    {
+      name: 'Слева',
+      onClick: () => {
+        closeSettingsModal();
+        header?.column.pin('left');
+      },
+      value: 'left',
+    },
     {
       name: 'Справа',
-      onClick: () => header?.column.pin('right'),
+      onClick: () => {
+        closeSettingsModal();
+        header?.column.pin('right');
+      },
       value: 'right',
     },
-    { name: 'Открепить', onClick: () => header?.column.pin(false) },
+    {
+      name: 'Открепить',
+      onClick: () => {
+        closeSettingsModal();
+        header?.column.pin(false);
+      },
+    },
   ];
 
   return (
