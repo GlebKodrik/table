@@ -46,7 +46,6 @@ export const Table: React.FC<TTableProps> = ({
   const table = useReactTable({
     data,
     columns,
-    columnResizeMode: 'onChange',
     state: {
       columnOrder,
       expanded,

@@ -36,7 +36,6 @@ export const DraggableColumnHeader: FC<{
         column.id,
         columnOrder,
       );
-      console.log(draggedColumn.id);
       setColumnOrder(newColumnOrder);
     },
   });
