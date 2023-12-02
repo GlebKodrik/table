@@ -16,8 +16,22 @@ const columns = [
     columns: [
       {
         accessorKey: 'firstName',
-        cell: (info) => info.getValue(),
-        footer: (props) => props.column.id,
+        isGroup: true,
+        meta: {
+          isGroup: true,
+        },
+        header: ({ table }) => (
+          <>
+            <button
+              {...{
+                onClick: table.getToggleAllRowsExpandedHandler(),
+              }}
+            >
+              {table.getIsAllRowsExpanded() ? '👇' : '👉'}
+            </button>{' '}
+            First Name
+          </>
+        ),
       },
       {
         accessorFn: (row) => row.lastName,
@@ -60,7 +74,8 @@ const columns = [
     ],
   },
 ];
-const regenerateData = makeData(20);
+
+const regenerateData = makeData(100, 5, 3);
 
 function App() {
   const [perPage, setPerPage] = useState(SELECT_ITEMS[0]);

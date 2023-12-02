@@ -5,7 +5,9 @@ import { useComponentSize } from '@consta/uikit/useComponentSize';
 import {
   ColumnDef,
   ColumnOrderState,
+  ExpandedState,
   getCoreRowModel,
+  getExpandedRowModel,
   useReactTable,
 } from '@tanstack/react-table';
 import { DraggableColumnHeader } from 'components/Table/components/draggable-column-header';
@@ -29,7 +31,7 @@ const MIN_SIZE_COLUMN = 52;
 export const Table: React.FC<TTableProps> = ({ columns, data, ...props }) => {
   const containerRef = useRef<HTMLTableSectionElement>(null);
   const { height } = useComponentSize(containerRef);
-
+  const [expanded, setExpanded] = React.useState<ExpandedState>({});
   const [columnOrder, setColumnOrder] = React.useState<ColumnOrderState>(
     columns.map((column) => column.id as string),
   );
@@ -40,8 +42,12 @@ export const Table: React.FC<TTableProps> = ({ columns, data, ...props }) => {
     columnResizeMode: 'onChange',
     state: {
       columnOrder,
+      expanded,
     },
+    onExpandedChange: setExpanded,
     onColumnOrderChange: setColumnOrder,
+    getSubRows: (row) => row.subRows,
+    getExpandedRowModel: getExpandedRowModel(),
     getCoreRowModel: getCoreRowModel(),
     defaultColumn: {
       minSize: MIN_SIZE_COLUMN,

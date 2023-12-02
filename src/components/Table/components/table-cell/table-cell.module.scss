@@ -15,3 +15,21 @@
   height: 100%;
   background-color: var(--color-deleted-row);
 }
+
+.collapse-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.button-collapse {
+  display: flex;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin-right: 6px;
+  background-color: transparent;
+}
+
+.icon svg {
+  fill: #00203359 !important;
+}
