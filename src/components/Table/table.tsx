@@ -29,7 +29,7 @@ type TTableProps = {
   className?: string;
 } & TableProviderProps;
 
-const MIN_SIZE_COLUMN = 52;
+const MIN_SIZE_COLUMN = 65;
 export const Table: React.FC<TTableProps> = ({
   columns,
   data,
