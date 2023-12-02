@@ -1,0 +1,27 @@
+.szh-menu {
+  list-style-type: none;
+
+  &__item {
+    color: #002033;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+
+    &:focus-visible {
+      outline: none;
+    }
+
+    &--submenu {
+      position: relative;
+      display: flex;
+      align-items: center;
+      text-align: left;
+      list-style-type: none;
+      cursor: default;
+
+      &:hover {
+        background: rgb(0 66 105 / 7%);
+      }
+    }
+  }
+}

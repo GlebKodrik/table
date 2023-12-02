@@ -1,0 +1,49 @@
+.wrapper {
+  width: 256px;
+
+  &-search {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+}
+
+.list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-height: 102px;
+  max-height: 256px;
+  padding: 0;
+  overflow-y: scroll;
+  text-align: left;
+  border-radius: 4px;
+}
+
+.loader {
+  position: absolute;
+}
+
+.empty {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.item {
+  padding: 2px 12px;
+}
+
+.search {
+  margin-left: 8px;
+}
+
+.checkbox {
+  span {
+    overflow-wrap: anywhere;
+  }
+}

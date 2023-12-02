@@ -1,7 +1,9 @@
 import { Column, ColumnOrderState, Header, Table } from '@tanstack/react-table';
+import cn from 'classnames';
 import { FC } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
 
+import { ColumnOptions } from '@/components/Table/components/column-options';
 import { ColumnContent } from '@/components/Table/components/draggable-column-header/components/column-content';
 import { ColumnResizer } from '@/components/Table/components/draggable-column-header/components/column-resizer';
 
@@ -47,7 +49,12 @@ export const DraggableColumnHeader: FC<{
     item: () => column,
     type: 'column',
   });
+  const isHaveMenu = header.column.columnDef.meta?.isHaveMenu;
+
+  const isShowMenu = !header.subHeaders?.length && isHaveMenu !== false;
   const isLastThead = header.index === header.headerGroup.headers.length - 1;
+  const columnAccessorKey = (header.column.columnDef as { accessorKey: string })
+    .accessorKey;
 
   return (
     <div
@@ -76,6 +83,23 @@ export const DraggableColumnHeader: FC<{
             table={table}
           />
         </div>
+        {isShowMenu ? (
+          <ColumnOptions
+            triggerClassName={cn(styles.trigger, {
+              [styles.lastColumnOptions]: isLastThead,
+            })}
+            columnName={columnAccessorKey}
+            // @ts-ignore
+            optionsColumns={{
+              activeColumnFilters: {},
+              columnFilters: {},
+              activeColumns: {},
+              sortColumns: {},
+            }}
+            column={column}
+            formatValues={() => 'Привет'}
+          />
+        ) : null}
         <ColumnResizer
           header={header}
           isLastThead={isLastThead}

@@ -62,7 +62,6 @@ export const ColumnContent: React.FC<TColumnContentProps> = ({
         </button>
       );
     }
-
     return (
       <button
         type="button"

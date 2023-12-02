@@ -1,0 +1,30 @@
+.wrapper {
+  width: 180px;
+}
+  
+.list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-height: 102px;
+  max-height: 256px;
+  padding: 0;
+  text-align: left;
+  border-radius: 4px;
+}
+  
+.item {
+  width: 100%;
+  padding: 8px 12px;
+  text-align: left;
+  background: none;
+  border: none;
+  outline: 0;
+  cursor: pointer;
+
+  &:hover {
+      background: var(--color-control-bg-clear-hover);
+  }
+}
+  

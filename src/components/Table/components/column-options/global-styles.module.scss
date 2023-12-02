@@ -1,0 +1,17 @@
+.menu-item {
+  width: 100%;
+  padding: 8px 12px;
+  text-align: left;
+  background: none;
+  border: none;
+  outline: 0;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--color-control-bg-clear-hover);
+  }
+}
+
+.text {
+  line-height: 1.75;
+}

@@ -48,6 +48,7 @@ const columns = [
         header: 'Количество лет',
         meta: {
           collapseVisible: ['visits', 'status'],
+          isHaveMenu: false,
         },
       },
       {

@@ -41,3 +41,26 @@
   fill: rgb(250, 250, 250) !important;
 }
 
+th {
+  position: relative;
+}
+
+.column-wrapper {
+  padding: 10px 50px 10px 4px;
+}
+
+.column-content-active {
+  padding: 10px 4px;
+}
+
+.trigger {
+  position: absolute;
+  top: 50%;
+  right: -26px;
+  padding: 4px;
+  transform: translate(-50%, -50%);
+}
+
+.last-column-options {
+  right: -23px;
+}
