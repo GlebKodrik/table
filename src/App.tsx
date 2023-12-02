@@ -88,16 +88,19 @@ function App() {
   };
 
   return (
-    <Table
-      onPaginationChange={onPaginationChange}
-      page={page}
-      onPerPageChange={onPerPageChange}
-      perPage={perPage}
-      totalCount={200}
-      isOneLineColumn
-      columns={columns}
-      data={regenerateData}
-    />
+    <div>
+      <Table
+        className="wrapper"
+        onPaginationChange={onPaginationChange}
+        page={page}
+        onPerPageChange={onPerPageChange}
+        perPage={perPage}
+        totalCount={200}
+        isOneLineColumn
+        columns={columns}
+        data={regenerateData}
+      />
+    </div>
   );
 }
 

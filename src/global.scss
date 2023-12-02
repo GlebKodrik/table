@@ -3,3 +3,7 @@ body {
   margin: 0;
   box-sizing: border-box;
 }
+
+.wrapper {
+  height: calc(100vh - 415px);
+}

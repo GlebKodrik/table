@@ -25,10 +25,16 @@ import styles from './table.module.scss';
 type TTableProps = {
   columns: ColumnDef<unknown, any>[];
   data: any[];
+  className?: string;
 } & TableProviderProps;
 
 const MIN_SIZE_COLUMN = 52;
-export const Table: React.FC<TTableProps> = ({ columns, data, ...props }) => {
+export const Table: React.FC<TTableProps> = ({
+  columns,
+  data,
+  className,
+  ...props
+}) => {
   const containerRef = useRef<HTMLTableSectionElement>(null);
   const { height } = useComponentSize(containerRef);
   const [expanded, setExpanded] = React.useState<ExpandedState>({});
@@ -58,17 +64,15 @@ export const Table: React.FC<TTableProps> = ({ columns, data, ...props }) => {
     <TableProvider.Provider value={props}>
       <div
         className={cnMixCard({ border: true, form: 'round' }, [
+          className,
           styles.wrapperTable,
           styles.borderBottom,
         ])}
       >
         <div
+          className={styles.additionalHeader}
           style={{
             height,
-            background: 'rgb(0,113,178)',
-            position: 'absolute',
-            width: '100%',
-            right: 0,
           }}
         />
         <table
