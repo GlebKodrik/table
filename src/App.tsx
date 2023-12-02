@@ -29,7 +29,7 @@ const columns = [
             >
               {table.getIsAllRowsExpanded() ? '👇' : '👉'}
             </button>{' '}
-            First Name
+            <div title="Первоначальное имя">Первоначальное имя</div>
           </>
         ),
       },
