@@ -1,6 +1,7 @@
 .column {
   position: relative;
   padding: 10px 50px 10px 4px;
+  height: 100%;
 }
 
 .content {
@@ -20,3 +21,20 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
 }
+
+.button {
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  position: absolute;
+  right: 0;
+  transform: translate(-50%,-50%);
+  top: 50%;
+}
+
+.icon svg {
+  fill: rgb(250, 250, 250) !important;
+}
+

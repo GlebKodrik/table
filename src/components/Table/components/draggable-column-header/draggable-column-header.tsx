@@ -71,7 +71,10 @@ export const DraggableColumnHeader: FC<{
             dragRef(ref);
           }}
         >
-          <ColumnContent header={header} />
+          <ColumnContent
+            header={header}
+            table={table}
+          />
         </div>
         <ColumnResizer
           header={header}

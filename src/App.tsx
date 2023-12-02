@@ -1,5 +1,6 @@
 import './global.scss';
 
+import { Badge } from '@consta/uikit/Badge';
 import { createColumnHelper } from '@tanstack/react-table';
 import { useState } from 'react';
 
@@ -47,10 +48,15 @@ const columns = [
     columns: [
       {
         accessorKey: 'age',
-        header: () => 'Age',
+        header: () => 'age',
         footer: (props) => props.column.id,
+        meta: {
+          collapseVisible: ['visits', 'status'],
+        },
       },
       {
+        accessorKey: 'more',
+        id: 'more',
         header: 'More Info',
         columns: [
           {
@@ -61,7 +67,13 @@ const columns = [
           {
             accessorKey: 'status',
             header: 'Status',
-            footer: (props) => props.column.id,
+            cell: (props) => (
+              <Badge
+                size="s"
+                status="normal"
+                label="Черновик"
+              />
+            ),
           },
           {
             accessorKey: 'progress',
