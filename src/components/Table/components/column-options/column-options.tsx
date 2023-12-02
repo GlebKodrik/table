@@ -1,6 +1,7 @@
 import './styles.scss';
 
 import { IconArrowRight } from '@consta/uikit/IconArrowRight';
+import { IconCheck } from '@consta/uikit/IconCheck';
 import { IconFunnel } from '@consta/uikit/IconFunnel';
 import { IconHamburger } from '@consta/uikit/IconHamburger';
 import {
@@ -89,6 +90,11 @@ export const ColumnOptions = ({
     header?.column.pin(false);
     menuRef?.current?.closeMenu();
   };
+  const onClickGroup = () => {
+    header?.column.getToggleGroupingHandler()();
+    menuRef?.current?.closeMenu();
+  };
+
   return (
     <div className={cn(styles.menuContainer, triggerClassName)}>
       <Menu
@@ -129,10 +135,20 @@ export const ColumnOptions = ({
         {/*  {...optionsColumns} */}
         {/* /> */}
         {/* <Separator /> */}
-        {/* <MenuItem className={globalStyled.menuItem}> */}
-        {/*  Сгруппировать по столбцу */}
-        {/* </MenuItem> */}
-        {/* <Separator /> */}
+        <MenuItem
+          className={cn(globalStyled.menuItem, styles.menuSettings)}
+          onClick={onClickGroup}
+        >
+          {header?.column.getIsGrouped() ? (
+            <IconCheck
+              size="s"
+              view="success"
+              className={styles.iconMenuSettings}
+            />
+          ) : null}
+          Сгруппировать по столбцу
+        </MenuItem>
+        <Separator />
         <SubMenu
           menuClassName={styles.menu}
           label={

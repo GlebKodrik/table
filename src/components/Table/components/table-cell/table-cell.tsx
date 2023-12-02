@@ -10,7 +10,48 @@ type TTableBodyProps = { cell: Cell<any, unknown> };
 
 export const TableCell: React.FC<TTableBodyProps> = ({ cell }) => {
   const isGroup = cell.column.columnDef.meta?.isGroup;
+  const renderContent = () => {
+    if (cell.getIsGrouped() || (isGroup && cell.row.getCanExpand())) {
+      return (
+        <>
+          <button
+            className={styles.buttonCollapse}
+            type="button"
+            {...{
+              cursor: cell.row.getCanExpand() ? 'pointer' : 'normal',
+              onClick: cell.row.getToggleExpandedHandler(),
+            }}
+          >
+            <div className={styles.wrapperContent}>
+              {cell.row.getIsExpanded() ? (
+                <IconArrowDown
+                  size="s"
+                  className={styles.icon}
+                />
+              ) : (
+                <IconArrowRight
+                  size="s"
+                  className={styles.icon}
+                />
+              )}
+              {flexRender(cell.column.columnDef.cell, cell.getContext())}
+            </div>
+          </button>
+        </>
+      );
+    }
+    if (cell.getIsAggregated()) {
+      return flexRender(
+        cell.column.columnDef.aggregatedCell ?? cell.column.columnDef.cell,
+        cell.getContext(),
+      );
+    }
+    if (cell.getIsPlaceholder()) {
+      return null;
+    }
 
+    return flexRender(cell.column.columnDef.cell, cell.getContext());
+  };
   return (
     <div
       className={styles.collapseWrapper}
@@ -18,32 +59,13 @@ export const TableCell: React.FC<TTableBodyProps> = ({ cell }) => {
         paddingLeft: isGroup ? `${cell.row.depth * 2}rem` : '',
       }}
     >
-      {isGroup && cell.row.getCanExpand() ? (
-        <button
-          type="button"
-          onClick={cell.row.getToggleExpandedHandler()}
-          className={styles.buttonCollapse}
-        >
-          {cell.row.getIsExpanded() ? (
-            <IconArrowDown
-              size="s"
-              className={styles.icon}
-            />
-          ) : (
-            <IconArrowRight
-              size="s"
-              className={styles.icon}
-            />
-          )}
-        </button>
-      ) : null}
       <Text
         truncate
         size="s"
         lineHeight="s"
         title={cell.getValue() as string}
       >
-        {flexRender(cell.column.columnDef.cell, cell.getContext())}
+        {renderContent()}
       </Text>
     </div>
   );

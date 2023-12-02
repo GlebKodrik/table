@@ -8,6 +8,8 @@ import {
   ExpandedState,
   getCoreRowModel,
   getExpandedRowModel,
+  getGroupedRowModel,
+  GroupingState,
   useReactTable,
 } from '@tanstack/react-table';
 import cn from 'classnames';
@@ -36,6 +38,7 @@ export const Table: React.FC<TTableProps> = ({
   className,
   ...props
 }) => {
+  const [grouping, setGrouping] = React.useState<GroupingState>([]);
   const [columnPinning, setColumnPinning] = React.useState({});
   const [columnVisibility, setColumnVisibility] = React.useState({});
   const containerRef = useRef<HTMLTableSectionElement>(null);
@@ -56,9 +59,12 @@ export const Table: React.FC<TTableProps> = ({
       expanded,
       columnVisibility,
       columnPinning,
+      grouping,
     },
+    onGroupingChange: setGrouping,
     onColumnVisibilityChange: setColumnVisibility,
     onExpandedChange: setExpanded,
+    getGroupedRowModel: getGroupedRowModel(),
     onColumnOrderChange: setColumnOrder,
     onColumnPinningChange: setColumnPinning,
     getSubRows: (row) => (row as any).subRows,

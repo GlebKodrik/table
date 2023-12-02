@@ -17,20 +17,25 @@
 }
 
 .collapse-wrapper {
+  height: 100%;
   display: flex;
   align-items: center;
 }
 
 .button-collapse {
   cursor: pointer;
-  display: flex;
   border: none;
   outline: none;
   padding: 0;
-  margin-right: 6px;
   background-color: transparent;
 }
 
 .icon svg {
   fill: #00203359 !important;
+}
+
+.wrapper-content {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
