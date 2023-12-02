@@ -284,6 +284,12 @@ function App() {
                 progress: 70,
                 status: 'complicated',
               },
+              {
+                firstName: 'Прошу не судить за текущую таблицу',
+              },
+              {
+                firstName: 'Под банкой пива писал за день',
+              },
             ],
           },
           ...regenerateData,
