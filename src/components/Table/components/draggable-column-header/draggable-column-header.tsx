@@ -1,4 +1,5 @@
 import { Column, ColumnOrderState, Header, Table } from '@tanstack/react-table';
+import cn from 'classnames';
 import { FC } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
 
@@ -50,7 +51,7 @@ export const DraggableColumnHeader: FC<{
   const isLastThead = header.index === header.headerGroup.headers.length - 1;
 
   return (
-    <th
+    <div
       {...{
         key: header.id,
         colSpan: header.colSpan,
@@ -63,7 +64,7 @@ export const DraggableColumnHeader: FC<{
         dropRef(ref);
         previewRef(ref);
       }}
-      className={styles.column}
+      className={cn('th', styles.column)}
     >
       <div
         ref={(ref) => {
@@ -76,6 +77,6 @@ export const DraggableColumnHeader: FC<{
         header={header}
         isLastThead={isLastThead}
       />
-    </th>
+    </div>
   );
 };

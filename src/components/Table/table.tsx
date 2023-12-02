@@ -77,20 +77,23 @@ export const Table: React.FC<TTableProps> = ({
             height,
           }}
         />
-        <table
-          className={styles.table}
+        <div
+          className={cn('divTable', styles.table)}
           {...{
             style: {
               width: table.getCenterTotalSize(),
             },
           }}
         >
-          <thead
-            className={styles.thead}
+          <div
+            className={cn('thead', styles.thead)}
             ref={containerRef}
           >
             {table.getHeaderGroups().map((headerGroup) => (
-              <tr key={headerGroup.id}>
+              <div
+                key={headerGroup.id}
+                className="tr"
+              >
                 {headerGroup.headers.map((header) => (
                   <DraggableColumnHeader
                     key={header.id}
@@ -98,28 +101,32 @@ export const Table: React.FC<TTableProps> = ({
                     table={table}
                   />
                 ))}
-              </tr>
+              </div>
             ))}
-          </thead>
-          <tbody>
+          </div>
+          <div className="tbody">
             {table.getRowModel().rows.map((row) => (
-              <tr key={row.id}>
+              <div
+                key={row.id}
+                className="tr"
+              >
                 {row.getVisibleCells().map((cell) => {
                   return (
-                    <td
+                    <div
                       key={cell.id}
-                      className={cn(styles.td, {
-                        [styles.isOnly]: cell.row.original.isOnly,
+                      style={{ width: cell.column.getSize() }}
+                      className={cn('td', styles.td, {
+                        [styles.isOnly]: cell.row.original?.isOnly,
                       })}
                     >
                       <TableCell cell={cell} />
-                    </td>
+                    </div>
                   );
                 })}
-              </tr>
+              </div>
             ))}
-          </tbody>
-        </table>
+          </div>
+        </div>
       </div>
       <ControlTable />
     </TableProvider.Provider>
