@@ -19,6 +19,7 @@ const columns = [
         meta: {
           isGroup: true,
         },
+        size: 300,
         header: ({ table }) => (
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <button
@@ -38,10 +39,6 @@ const columns = [
         header: 'Фамилия',
       },
     ],
-  },
-  {
-    accessorKey: 'visits',
-    header: 'Визит',
   },
   {
     header: 'Информация',

@@ -88,7 +88,7 @@ export const Table: React.FC<TTableProps> = ({
           className={cn('divTable', styles.table)}
           {...{
             style: {
-              width: table.getCenterTotalSize(),
+              width: table.getTotalSize(),
             },
           }}
         >
