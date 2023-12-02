@@ -36,7 +36,7 @@ function App() {
             page={page}
             onPerPageChange={onPerPageChange}
             perPage={perPage}
-            totalCount={500}
+            totalCount={400}
             isOneLineColumn={false}
             columns={[
               {
@@ -79,7 +79,7 @@ function App() {
                 footer: (props) => props.column.id,
               },
             ]}
-            data={[...makeData(500)]}
+            data={[...makeData(400)]}
           />
         </div>
       );

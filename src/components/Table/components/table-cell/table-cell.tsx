@@ -11,7 +11,10 @@ type TTableBodyProps = { cell: Cell<any, unknown> };
 export const TableCell: React.FC<TTableBodyProps> = ({ cell }) => {
   const isGroup = cell.column.columnDef.meta?.isGroup;
   const renderContent = () => {
-    if (cell.getIsGrouped() || (isGroup && cell.row.getCanExpand())) {
+    if (
+      cell.getIsGrouped() ||
+      (!cell.getIsGrouped() && isGroup && cell.row.getCanExpand())
+    ) {
       return (
         <>
           <button
