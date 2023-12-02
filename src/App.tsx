@@ -11,43 +11,72 @@ import { makeData } from './components/utils/makeData';
 const columnHelper = createColumnHelper<any>();
 const columns = [
   {
-    accessorKey: 'firstName',
-    id: 'firstName',
-    header: 'First Name',
-    cell: (info) => info.getValue(),
+    header: 'Name',
     footer: (props) => props.column.id,
+    columns: [
+      {
+        accessorKey: 'firstName',
+        header: ({ table }) => (
+          <>
+            <button
+              {...{
+                onClick: table.getToggleAllRowsExpandedHandler(),
+              }}
+            >
+              {table.getIsAllRowsExpanded() ? '👇' : '👉'}
+            </button>{' '}
+            First Name
+          </>
+        ),
+        meta: {
+          isGroup: true,
+        },
+        cell: ({ row, getValue }) => (
+          <div>
+            <>{getValue()}</>
+          </div>
+        ),
+        footer: (props) => props.column.id,
+      },
+      {
+        accessorFn: (row) => row.lastName,
+        id: 'lastName',
+        cell: (info) => info.getValue(),
+        header: () => <span>Last Name</span>,
+        footer: (props) => props.column.id,
+      },
+    ],
   },
   {
-    accessorFn: (row) => row.lastName,
-    id: 'lastName',
-    cell: (info) => info.getValue(),
-    header: () => <span>Last Name</span>,
+    header: 'Info',
     footer: (props) => props.column.id,
-  },
-  {
-    accessorKey: 'age',
-    id: 'age',
-    header: 'Age',
-    footer: (props) => props.column.id,
-  },
-
-  {
-    accessorKey: 'visits',
-    id: 'visits',
-    header: 'Visits',
-    footer: (props) => props.column.id,
-  },
-  {
-    accessorKey: 'status',
-    id: 'status',
-    header: 'Status',
-    footer: (props) => props.column.id,
-  },
-  {
-    accessorKey: 'progress',
-    id: 'progress',
-    header: 'Profile Progress',
-    footer: (props) => props.column.id,
+    columns: [
+      {
+        accessorKey: 'age',
+        header: () => 'Age',
+        footer: (props) => props.column.id,
+      },
+      {
+        header: 'More Info',
+        columns: [
+          {
+            accessorKey: 'visits',
+            header: () => <span>Visits</span>,
+            footer: (props) => props.column.id,
+          },
+          {
+            accessorKey: 'status',
+            header: 'Status',
+            footer: (props) => props.column.id,
+          },
+          {
+            accessorKey: 'progress',
+            header: 'Profile Progress',
+            footer: (props) => props.column.id,
+          },
+        ],
+      },
+    ],
   },
 ];
 
