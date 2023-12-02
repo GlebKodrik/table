@@ -13,13 +13,13 @@ const columnHelper = createColumnHelper<any>();
 const columns = [
   {
     header: 'Name',
-    footer: (props) => props.column.id,
     columns: [
       {
         accessorKey: 'firstName',
         meta: {
           isGroup: true,
         },
+        size: 300,
         header: ({ table }) => (
           <>
             <button
@@ -36,9 +36,7 @@ const columns = [
       {
         accessorFn: (row) => row.lastName,
         id: 'lastName',
-
         header: () => <span>Last Name</span>,
-        footer: (props) => props.column.id,
       },
     ],
   },
@@ -258,6 +256,32 @@ function App() {
               },
               {
                 firstName: 'Человек муравей',
+                lastName: 'mixture-hykkg',
+                age: 11,
+                visits: 94,
+                progress: 70,
+                status: 'complicated',
+              },
+              {
+                firstName: 'Ладно внес 1%',
+                lastName: 'mixture-hykkg',
+                age: 11,
+                visits: 94,
+                progress: 70,
+                status: 'complicated',
+              },
+            ],
+          },
+          {
+            firstName: 'Как дела у const таблицы ?',
+            lastName: 'mixture-hykkg',
+            age: 11,
+            visits: 94,
+            progress: 70,
+            status: 'complicated',
+            subRows: [
+              {
+                firstName: 'Все хорошо ?',
                 lastName: 'mixture-hykkg',
                 age: 11,
                 visits: 94,
