@@ -76,7 +76,6 @@ const columns = [
           {
             accessorKey: 'progress',
             header: 'Profile Progress',
-            footer: (props) => props.column.id,
           },
         ],
       },

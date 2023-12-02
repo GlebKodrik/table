@@ -41,7 +41,7 @@ export const TableCell: React.FC<TTableBodyProps> = ({ cell }) => {
         truncate
         size="s"
         lineHeight="s"
-        title=""
+        title={cell.getValue() as string}
       >
         {flexRender(cell.column.columnDef.cell, cell.getContext())}
       </Text>

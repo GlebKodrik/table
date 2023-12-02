@@ -24,11 +24,7 @@ export const ColumnContent: React.FC<TColumnContentProps> = ({
   header,
   table,
 }) => {
-  const title =
-    typeof header.column.columnDef.header === 'string'
-      ? header.column.columnDef.header
-      : undefined;
-
+  const { isOneLineColumn } = useContext(TableProvider);
   const collapseVisible = header.column.columnDef.meta?.collapseVisible;
 
   const onHideColumn = () => {
@@ -78,7 +74,12 @@ export const ColumnContent: React.FC<TColumnContentProps> = ({
     );
   };
 
-  const { isOneLineColumn } = useContext(TableProvider);
+  const headerContent = flexRender(
+    header.column.columnDef.header,
+    header.getContext(),
+  );
+  const title = typeof headerContent === 'string' ? headerContent : undefined;
+
   return (
     <div>
       <Text
