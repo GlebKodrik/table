@@ -12,7 +12,9 @@ import {
   SubMenu,
 } from '@szhsin/react-menu';
 import cn from 'classnames';
-import React, { useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
+
+import { HeaderProvider } from '@/components/Table/components/draggable-column-header/providers/header-provider';
 
 import styles from './column-options.module.scss';
 import { ColumnSort } from './components/column-sort';
@@ -41,7 +43,7 @@ export const ColumnOptions = ({
     isLoading,
     activeColumns,
   } = optionsColumns;
-
+  const { header } = useContext(HeaderProvider);
   const activeFilters = activeColumnFilters && activeColumnFilters[columnName];
   const isActiveFilters = activeColumns[columnName]?.filter;
   const isActiveSorting = activeColumns[columnName]?.sortBy;
@@ -81,6 +83,11 @@ export const ColumnOptions = ({
   };
 
   const closeSettingsModal = () => {
+    menuRef?.current?.closeMenu();
+  };
+
+  const resetSettings = () => {
+    header?.column.pin(false);
     menuRef?.current?.closeMenu();
   };
   return (
@@ -143,7 +150,10 @@ export const ColumnOptions = ({
             <Freezing closeSettingsModal={closeSettingsModal} />
           </MenuItem>
         </SubMenu>
-        <MenuItem className={globalStyled.menuItem}>
+        <MenuItem
+          className={globalStyled.menuItem}
+          onClick={resetSettings}
+        >
           Сброс настроек столбца
         </MenuItem>
       </Menu>
