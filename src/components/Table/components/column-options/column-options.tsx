@@ -14,13 +14,12 @@ import {
 import cn from 'classnames';
 import React, { useContext, useRef, useState } from 'react';
 
+import { Separator } from '@/components/Table/components/column-options/components/separator/separator';
 import { HeaderProvider } from '@/components/Table/components/draggable-column-header/providers/header-provider';
 
 import styles from './column-options.module.scss';
-import { ColumnSort } from './components/column-sort';
 import { Filters } from './components/filters';
 import { Freezing } from './components/freezing/freezing';
-import { Separator } from './components/separator/separator';
 import globalStyled from './global-styles.module.scss';
 import { TProps } from './types';
 
@@ -124,16 +123,16 @@ export const ColumnOptions = ({
         menuClassName={styles.menu}
         submenuOpenDelay={SUBMENU_OPEN_DELAY}
       >
-        <ColumnSort
-          column={column}
-          columnName={columnName}
-          {...optionsColumns}
-        />
-        <Separator />
-        <MenuItem className={globalStyled.menuItem}>
-          Сгруппировать по столбцу
-        </MenuItem>
-        <Separator />
+        {/* <ColumnSort */}
+        {/*  column={column} */}
+        {/*  columnName={columnName} */}
+        {/*  {...optionsColumns} */}
+        {/* /> */}
+        {/* <Separator /> */}
+        {/* <MenuItem className={globalStyled.menuItem}> */}
+        {/*  Сгруппировать по столбцу */}
+        {/* </MenuItem> */}
+        {/* <Separator /> */}
         <SubMenu
           menuClassName={styles.menu}
           label={
@@ -150,6 +149,7 @@ export const ColumnOptions = ({
             <Freezing closeSettingsModal={closeSettingsModal} />
           </MenuItem>
         </SubMenu>
+        <Separator />
         <MenuItem
           className={globalStyled.menuItem}
           onClick={resetSettings}
