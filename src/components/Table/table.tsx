@@ -46,7 +46,7 @@ export const Table: React.FC<TTableProps> = ({ columns, data, ...props }) => {
     },
     onExpandedChange: setExpanded,
     onColumnOrderChange: setColumnOrder,
-    getSubRows: (row) => row.subRows,
+    getSubRows: (row) => (row as any).subRows,
     getExpandedRowModel: getExpandedRowModel(),
     getCoreRowModel: getCoreRowModel(),
     defaultColumn: {
