@@ -16,10 +16,12 @@ const items: string[] = ['C Drag and Drop', 'Без Drag and drop'];
 const regenerateData = makeData(100, 5, 3);
 const getItemLabel = (label: string) => label;
 function App() {
+  const [tableData, setTableData] = useState(() => makeData(50));
   const [value, setValue] = useState<string | null>(items[0]);
   const [perPage, setPerPage] = useState(SELECT_ITEMS[0]);
   const [page, setPage] = useState(0);
   const onPerPageChange = (value) => {
+    setTableData(() => makeData(value.value));
     setPerPage(value);
   };
   const onPaginationChange = (value) => {
@@ -36,7 +38,7 @@ function App() {
             page={page}
             onPerPageChange={onPerPageChange}
             perPage={perPage}
-            totalCount={400}
+            totalCount={tableData?.length}
             isOneLineColumn={false}
             columns={[
               {
@@ -79,7 +81,7 @@ function App() {
                 footer: (props) => props.column.id,
               },
             ]}
-            data={[...makeData(400)]}
+            data={tableData}
           />
         </div>
       );

@@ -124,6 +124,7 @@ export const Table: React.FC<TTableProps> = ({
                 className="tr"
               >
                 {row.getVisibleCells().map((cell) => {
+                  // @ts-ignore
                   return (
                     <div
                       key={cell.id}
