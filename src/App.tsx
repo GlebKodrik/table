@@ -21,7 +21,7 @@ const columns = [
         },
         size: 300,
         header: ({ table }) => (
-          <>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
             <button
               {...{
                 onClick: table.getToggleAllRowsExpandedHandler(),
@@ -30,7 +30,7 @@ const columns = [
               {table.getIsAllRowsExpanded() ? '👇' : '👉'}
             </button>{' '}
             <div title="Первоначальное имя">Первоначальное имя</div>
-          </>
+          </div>
         ),
       },
       {
@@ -91,7 +91,7 @@ function App() {
   const onPaginationChange = (value) => {
     setPage(value);
   };
-  console.log(regenerateData);
+
   return (
     <div>
       <Table
@@ -101,7 +101,7 @@ function App() {
         onPerPageChange={onPerPageChange}
         perPage={perPage}
         totalCount={200}
-        isOneLineColumn
+        isOneLineColumn={false}
         columns={columns}
         data={[
           {
