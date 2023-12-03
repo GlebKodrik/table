@@ -83,6 +83,7 @@ export const NoDrag = () => {
   const onPaginationChange = (value) => {
     setPage(value);
   };
+
   return (
     <div>
       <Table

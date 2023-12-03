@@ -14,7 +14,7 @@ import {
   useReactTable,
 } from '@tanstack/react-table';
 import cn from 'classnames';
-import React, { useMemo, useRef } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import { useVirtual } from 'react-virtual';
 
 import { ControlTable } from '@/components/Table/components/control-table';
@@ -68,6 +68,10 @@ export const Table: React.FC<TTableProps> = ({
     tableColumns.map((column) => column.id as string),
   );
   const [tableData, setTableData] = React.useState(data);
+
+  useEffect(() => {
+    setTableData(data);
+  }, [data]);
 
   const table = useReactTable({
     data: tableData,
@@ -162,9 +166,9 @@ export const Table: React.FC<TTableProps> = ({
           </div>
           <div className="tbody">
             {paddingTop > 0 && (
-              <tr>
-                <td style={{ height: `${paddingTop}px` }} />
-              </tr>
+              <div>
+                <div style={{ height: `${paddingTop}px` }} />
+              </div>
             )}
             {virtualRows.map((virtualRow) => {
               const row = rows[virtualRow.index] as Row<any>;
@@ -176,9 +180,9 @@ export const Table: React.FC<TTableProps> = ({
               );
             })}
             {paddingBottom > 0 && (
-              <tr>
-                <td style={{ height: `${paddingBottom}px` }} />
-              </tr>
+              <div>
+                <div style={{ height: `${paddingBottom}px` }} />
+              </div>
             )}
           </div>
         </div>
