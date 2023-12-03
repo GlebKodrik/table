@@ -55,7 +55,9 @@ export const Table: React.FC<TTableProps> = ({
       : columns;
   }, [columns, props.isDragRow]);
   const [grouping, setGrouping] = React.useState<GroupingState>([]);
-  const [columnPinning, setColumnPinning] = React.useState({});
+  const [columnPinning, setColumnPinning] = React.useState(
+    props.isDragRow ? { left: [ID_DRAG_ROF] } : {},
+  );
   const [columnVisibility, setColumnVisibility] = React.useState({});
   const containerRef = useRef<HTMLTableSectionElement>(null);
   const { height } = useComponentSize(containerRef);
@@ -64,7 +66,7 @@ export const Table: React.FC<TTableProps> = ({
     tableColumns.map((column) => column.id as string),
   );
   const [tableData, setTableData] = React.useState(data);
-
+  console.log(columnPinning);
   const table = useReactTable({
     data: tableData,
     columns: tableColumns,
