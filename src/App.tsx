@@ -29,6 +29,9 @@ const columns = [
     id: 'Количество лет',
     header: 'Age',
     footer: (props) => props.column.id,
+    meta: {
+      dataType: 'number',
+    },
   },
 
   {
@@ -51,12 +54,7 @@ const columns = [
   },
 ];
 
-const items: string[] = [
-  'C Drag and Drop',
-  'Без Drag and drop',
-  'Без данных',
-  'С загрузской',
-];
+const items: string[] = ['C Drag and Drop', 'Без Drag and drop'];
 const regenerateData = makeData(100, 5, 3);
 const getItemLabel = (label: string) => label;
 function App() {

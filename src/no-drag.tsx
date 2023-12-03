@@ -45,6 +45,7 @@ const columns = [
         meta: {
           collapseVisible: ['visits', 'status'],
           isHaveMenu: false,
+          dataType: 'number',
         },
       },
       {
@@ -188,7 +189,7 @@ export const NoDrag = () => {
           },
           {
             firstName: '0 помощи от Влада',
-            age: 'Нету',
+            age: '0',
             subRows: [
               {
                 firstName: 'Дурачек потому что',

@@ -5,5 +5,6 @@ declare module '@tanstack/table-core' {
     isGroup?: boolean;
     isHaveMenu?: boolean;
     collapseVisible?: string[];
+    dataType?: 'number' | 'text';
   }
 }

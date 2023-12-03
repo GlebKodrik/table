@@ -2,14 +2,26 @@ import { IconArrowDown } from '@consta/icons/IconArrowDown';
 import { IconArrowRight } from '@consta/icons/IconArrowRight';
 import { Text } from '@consta/uikit/Text';
 import { Cell, flexRender } from '@tanstack/react-table';
+import cn from 'classnames';
 import React from 'react';
 
 import styles from './table-cell.module.scss';
 
 type TTableBodyProps = { cell: Cell<any, unknown> };
+export const NUMBER_LIST = ['number'];
 
+export const getIsHaveType = (currentType: string, type: string) => {
+  return type.toLowerCase().includes(currentType.toLowerCase());
+};
+
+const getIsNumber = (type: string) => {
+  return Boolean(
+    NUMBER_LIST.find((numberType) => getIsHaveType(numberType, type || '')),
+  );
+};
 export const TableCell: React.FC<TTableBodyProps> = ({ cell }) => {
   const isGroup = cell.column.columnDef.meta?.isGroup;
+  const dataType = cell.column.columnDef.meta?.dataType;
   const renderContent = () => {
     if (
       cell.getIsGrouped() ||
@@ -57,7 +69,9 @@ export const TableCell: React.FC<TTableBodyProps> = ({ cell }) => {
   };
   return (
     <div
-      className={styles.collapseWrapper}
+      className={cn(styles.collapseWrapper, {
+        [styles.align]: dataType && getIsNumber(dataType),
+      })}
       style={{
         paddingLeft: isGroup ? `${cell.row.depth * 2}rem` : '',
       }}
