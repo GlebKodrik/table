@@ -13,9 +13,7 @@ import {
   useReactTable,
 } from '@tanstack/react-table';
 import cn from 'classnames';
-import { DraggableColumnHeader } from 'components/Table/components/draggable-column-header';
-import { TableCell } from 'components/Table/components/table-cell';
-import React, { useRef } from 'react';
+import React, { useMemo, useRef } from 'react';
 
 import { ControlTable } from '@/components/Table/components/control-table';
 import {
@@ -23,6 +21,9 @@ import {
   TableProviderProps,
 } from '@/components/Table/providers/table-provider';
 
+import { DraggableColumnHeader } from './components/draggable-column-header';
+import { DraggableRow } from './components/draggable-row';
+import { ID_DRAG_ROF } from './constants';
 import styles from './table.module.scss';
 
 type TTableProps = {
@@ -38,6 +39,21 @@ export const Table: React.FC<TTableProps> = ({
   className,
   ...props
 }) => {
+  const tableColumns = useMemo(() => {
+    return props.isDragRow
+      ? [
+          {
+            size: MIN_SIZE_COLUMN,
+            id: ID_DRAG_ROF,
+            header: '',
+            meta: {
+              isHaveMenu: false,
+            },
+          },
+          ...columns,
+        ]
+      : columns;
+  }, [columns, props.isDragRow]);
   const [grouping, setGrouping] = React.useState<GroupingState>([]);
   const [columnPinning, setColumnPinning] = React.useState({});
   const [columnVisibility, setColumnVisibility] = React.useState({});
@@ -45,12 +61,13 @@ export const Table: React.FC<TTableProps> = ({
   const { height } = useComponentSize(containerRef);
   const [expanded, setExpanded] = React.useState<ExpandedState>({});
   const [columnOrder, setColumnOrder] = React.useState<ColumnOrderState>(
-    columns.map((column) => column.id as string),
+    tableColumns.map((column) => column.id as string),
   );
+  const [tableData, setTableData] = React.useState(data);
 
   const table = useReactTable({
-    data,
-    columns,
+    data: tableData,
+    columns: tableColumns,
     columnResizeMode: 'onChange',
     enableColumnResizing: true,
     enableHiding: true,
@@ -74,6 +91,11 @@ export const Table: React.FC<TTableProps> = ({
       minSize: MIN_SIZE_COLUMN,
     },
   });
+
+  const reorderRow = (draggedRowIndex: number, targetRowIndex: number) => {
+    data.splice(targetRowIndex, 0, data.splice(draggedRowIndex, 1)[0] as any);
+    setTableData([...data]);
+  };
 
   return (
     <TableProvider.Provider value={props}>
@@ -119,24 +141,10 @@ export const Table: React.FC<TTableProps> = ({
           </div>
           <div className="tbody">
             {table.getRowModel().rows.map((row) => (
-              <div
-                key={row.id}
-                className="tr"
-              >
-                {row.getVisibleCells().map((cell) => {
-                  return (
-                    <div
-                      key={cell.id}
-                      style={{ width: cell.column.getSize() }}
-                      className={cn('td', styles.td, {
-                        [styles.isOnly]: cell.row.original?.isOnly,
-                      })}
-                    >
-                      <TableCell cell={cell} />
-                    </div>
-                  );
-                })}
-              </div>
+              <DraggableRow
+                row={row}
+                reorderRow={reorderRow}
+              />
             ))}
           </div>
         </div>

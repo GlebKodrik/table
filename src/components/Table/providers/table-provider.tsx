@@ -11,6 +11,7 @@ export type TableProviderProps = {
   page?: number;
   onPaginationChange?: (value: number) => void;
   isDisabledControlMenu?: boolean;
+  isDragRow?: boolean;
 };
 
 export const TableProvider = createContext<TableProviderProps>({

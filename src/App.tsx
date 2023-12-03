@@ -54,7 +54,10 @@ const columns = [
   },
 ];
 
-const items: string[] = ['C Drag and Drop', 'Без Drag and drop'];
+const items: string[] = [
+  'C Drag and Drop (и drag and drop строк)',
+  'Без Drag and drop',
+];
 const regenerateData = makeData(100, 5, 3);
 const getItemLabel = (label: string) => label;
 function App() {
@@ -71,10 +74,11 @@ function App() {
   };
 
   const renderTable = () => {
-    if (value === 'C Drag and Drop') {
+    if (value === 'C Drag and Drop (и drag and drop строк)') {
       return (
         <div>
           <Table
+            isDragRow
             className="wrapper"
             onPaginationChange={onPaginationChange}
             page={page}

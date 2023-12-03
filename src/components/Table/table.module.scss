@@ -30,11 +30,6 @@
   background: rgb(0,113,178);
 }
 
-.td {
-  overflow: hidden;
-  padding: 8px 16px;
-}
-
 .additional-header {
   position: sticky;
   top: 0;
@@ -46,3 +41,4 @@
   border-right: none;
   background: var(--bg-stripe, rgba(0, 32, 51, 0.05));
 }
+

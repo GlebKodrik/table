@@ -48,3 +48,12 @@ table,
 li {
   list-style: none;
 }
+
+button {
+  background: transparent;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
