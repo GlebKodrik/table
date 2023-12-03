@@ -39,6 +39,9 @@ const columns = [
     id: 'visits',
     header: 'Визит',
     footer: (props) => props.column.id,
+    meta: {
+      dataType: 'number',
+    },
   },
   {
     accessorKey: 'status',
