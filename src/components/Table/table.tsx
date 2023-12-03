@@ -177,6 +177,7 @@ export const Table: React.FC<TTableProps> = ({
                   key={row.id}
                   row={row}
                   reorderRow={reorderRow}
+                  table={table}
                 />
               );
             })}

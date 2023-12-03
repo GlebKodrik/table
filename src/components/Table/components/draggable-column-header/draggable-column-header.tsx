@@ -1,13 +1,13 @@
 import { Column, ColumnOrderState, Header, Table } from '@tanstack/react-table';
 import cn from 'classnames';
-import { FC } from 'react';
+import { FC, useMemo } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
 
 import { ColumnOptions } from '@/components/Table/components/column-options';
 import { ColumnContent } from '@/components/Table/components/draggable-column-header/components/column-content';
 import { ColumnResizer } from '@/components/Table/components/draggable-column-header/components/column-resizer';
 import { HeaderProvider } from '@/components/Table/components/draggable-column-header/providers/header-provider';
-import { ID_DRAG_ROW } from '@/components/Table/constants';
+import { sumSizesBeforeId } from '@/components/Table/utils/sum-sizes-before-id';
 
 import styles from './components/column-content/column-content.module.scss';
 
@@ -28,6 +28,10 @@ export const DraggableColumnHeader: FC<{
   header: Header<any, unknown>;
   table: Table<any>;
 }> = ({ header, table }) => {
+  const leftColumn = useMemo(() => {
+    return table.getLeftHeaderGroups()?.[0]?.headers;
+  }, [table.getLeftHeaderGroups()]);
+
   const { getState, setColumnOrder } = table;
   const { columnOrder } = getState();
   const { column } = header;
@@ -57,7 +61,7 @@ export const DraggableColumnHeader: FC<{
   const isLastThead = header.index === header.headerGroup.headers.length - 1;
   const columnAccessorKey = (header.column.columnDef as { accessorKey: string })
     .accessorKey;
-
+  const isPinnedLeft = header.column.getIsPinned() === 'left';
   return (
     <div
       {...{
@@ -66,6 +70,9 @@ export const DraggableColumnHeader: FC<{
         style: {
           width: header.getSize(),
           opacity: isDragging ? 0.5 : 1,
+          left: isPinnedLeft
+            ? sumSizesBeforeId(leftColumn, header.column.id)
+            : undefined,
         },
       }}
       ref={(ref) => {
@@ -73,7 +80,7 @@ export const DraggableColumnHeader: FC<{
         previewRef(ref);
       }}
       className={cn('th', {
-        [styles.sticky]: header.id === ID_DRAG_ROW,
+        [styles.sticky]: isPinnedLeft,
       })}
     >
       <HeaderProvider.Provider value={{ header }}>

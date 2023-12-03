@@ -1,17 +1,23 @@
 import { IconHamburger } from '@consta/uikit/IconHamburger';
-import { Cell, Row } from '@tanstack/react-table';
+import { Cell, Row, Table } from '@tanstack/react-table';
 import cn from 'classnames';
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
 
 import { ID_DRAG_ROW } from '../../constants';
+import { sumSizesBeforeId } from '../../utils/sum-sizes-before-id';
 import { TableCell } from '../table-cell';
 import styles from './draggable-row.module.scss';
 
 export const DraggableRow: FC<{
   row: Row<any>;
+  table: Table<any>;
   reorderRow: (draggedRowIndex: number, targetRowIndex: number) => void;
-}> = ({ row, reorderRow }) => {
+}> = ({ row, reorderRow, table }) => {
+  const leftColumn = useMemo(() => {
+    return table.getLeftHeaderGroups()?.[0]?.headers;
+  }, [table.getLeftHeaderGroups()]);
+
   const [, dropRef] = useDrop({
     accept: 'row',
     drop: (draggedRow: Row<any>) => reorderRow(draggedRow.index, row.index),
@@ -51,19 +57,29 @@ export const DraggableRow: FC<{
       ref={previewRef}
       style={{ opacity: isDragging ? 0.5 : 1 }}
     >
-      {row.getVisibleCells().map((cell) => (
-        <div
-          ref={cell.column.id === ID_DRAG_ROW ? dropRef : null}
-          key={cell.id}
-          style={{ width: cell.column.getSize() }}
-          className={cn('td', styles.td, {
-            [styles.isOnly]: cell.row.original?.isOnly,
-            [styles.sticky]: cell.column.id === ID_DRAG_ROW,
-          })}
-        >
-          {renderContent(cell)}
-        </div>
-      ))}
+      {row.getVisibleCells().map((cell) => {
+        const isDragRow = cell.column.id === ID_DRAG_ROW;
+        const isPinnedLeft = cell.column.getIsPinned() === 'left';
+
+        return (
+          <div
+            ref={isDragRow ? dropRef : null}
+            key={cell.id}
+            style={{
+              width: cell.column.getSize(),
+              left: isPinnedLeft
+                ? sumSizesBeforeId(leftColumn, cell.column.id)
+                : undefined,
+            }}
+            className={cn('td', styles.td, {
+              [styles.isOnly]: cell.row.original?.isOnly,
+              [styles.sticky]: isPinnedLeft,
+            })}
+          >
+            {renderContent(cell)}
+          </div>
+        );
+      })}
     </div>
   );
 };
