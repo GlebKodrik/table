@@ -10,10 +10,12 @@ import {
   getExpandedRowModel,
   getGroupedRowModel,
   GroupingState,
+  Row,
   useReactTable,
 } from '@tanstack/react-table';
 import cn from 'classnames';
 import React, { useMemo, useRef } from 'react';
+import { useVirtual } from 'react-virtual';
 
 import { ControlTable } from '@/components/Table/components/control-table';
 import {
@@ -66,7 +68,7 @@ export const Table: React.FC<TTableProps> = ({
     tableColumns.map((column) => column.id as string),
   );
   const [tableData, setTableData] = React.useState(data);
-  console.log(columnPinning);
+
   const table = useReactTable({
     data: tableData,
     columns: tableColumns,
@@ -94,6 +96,22 @@ export const Table: React.FC<TTableProps> = ({
     },
   });
 
+  const tableContainerRef = React.useRef<HTMLDivElement>(null);
+
+  const { rows } = table.getRowModel();
+  const rowVirtualizer = useVirtual({
+    parentRef: tableContainerRef,
+    size: rows.length,
+    overscan: 10,
+  });
+  const { virtualItems: virtualRows, totalSize } = rowVirtualizer;
+
+  const paddingTop = virtualRows.length > 0 ? virtualRows?.[0]?.start || 0 : 0;
+  const paddingBottom =
+    virtualRows.length > 0
+      ? totalSize - (virtualRows?.[virtualRows.length - 1]?.end || 0)
+      : 0;
+
   const reorderRow = (draggedRowIndex: number, targetRowIndex: number) => {
     data.splice(targetRowIndex, 0, data.splice(draggedRowIndex, 1)[0] as any);
     setTableData([...data]);
@@ -107,6 +125,7 @@ export const Table: React.FC<TTableProps> = ({
           styles.wrapperTable,
           styles.borderBottom,
         ])}
+        ref={tableContainerRef}
       >
         <div
           className={styles.additionalHeader}
@@ -142,12 +161,25 @@ export const Table: React.FC<TTableProps> = ({
             ))}
           </div>
           <div className="tbody">
-            {table.getRowModel().rows.map((row) => (
-              <DraggableRow
-                row={row}
-                reorderRow={reorderRow}
-              />
-            ))}
+            {paddingTop > 0 && (
+              <tr>
+                <td style={{ height: `${paddingTop}px` }} />
+              </tr>
+            )}
+            {virtualRows.map((virtualRow) => {
+              const row = rows[virtualRow.index] as Row<any>;
+              return (
+                <DraggableRow
+                  row={row}
+                  reorderRow={reorderRow}
+                />
+              );
+            })}
+            {paddingBottom > 0 && (
+              <tr>
+                <td style={{ height: `${paddingBottom}px` }} />
+              </tr>
+            )}
           </div>
         </div>
       </div>

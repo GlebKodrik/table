@@ -74,6 +74,7 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.10.0",
     "react-split-pane": "^0.1.92",
+    "react-virtual": "^2.10.4",
     "redux-persist": "^6.0.0",
     "rollup-plugin-visualizer": "^5.9.0",
     "sass": "^1.60.0",
