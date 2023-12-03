@@ -92,7 +92,9 @@ export const ColumnOptions = ({
 
   const resetSettings = () => {
     header?.column.pin(false);
-    header?.column.getToggleGroupingHandler()();
+    if (header?.column.getIsGrouped()) {
+      header?.column.getToggleGroupingHandler()();
+    }
     closeModal();
   };
   const onClickGroup = () => {
