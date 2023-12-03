@@ -1,7 +1,6 @@
 import './global.scss';
 
 import { Tabs } from '@consta/uikit/Tabs';
-import { createColumnHelper } from '@tanstack/react-table';
 import { useState } from 'react';
 
 import { SELECT_ITEMS } from '@/components/Table/components/control-table/constants';
@@ -10,9 +9,54 @@ import { NoDrag } from '@/no-drag';
 import { Table } from './components/Table';
 import { makeData } from './components/utils/makeData';
 
-const columnHelper = createColumnHelper<any>();
+const columns = [
+  {
+    accessorKey: 'firstName',
+    id: 'firstName',
+    header: 'Первое имя',
+    cell: (info) => info.getValue(),
+    footer: (props) => props.column.id,
+  },
+  {
+    accessorFn: (row) => row.lastName,
+    id: 'Фамилия',
+    cell: (info) => info.getValue(),
+    header: () => <span>Last Name</span>,
+    footer: (props) => props.column.id,
+  },
+  {
+    accessorKey: 'age',
+    id: 'Количество лет',
+    header: 'Age',
+    footer: (props) => props.column.id,
+  },
 
-const items: string[] = ['C Drag and Drop', 'Без Drag and drop'];
+  {
+    accessorKey: 'visits',
+    id: 'visits',
+    header: 'Визит',
+    footer: (props) => props.column.id,
+  },
+  {
+    accessorKey: 'status',
+    id: 'status',
+    header: 'Статус',
+    footer: (props) => props.column.id,
+  },
+  {
+    accessorKey: 'progress',
+    id: 'Прогресс',
+    header: 'Profile Progress',
+    footer: (props) => props.column.id,
+  },
+];
+
+const items: string[] = [
+  'C Drag and Drop',
+  'Без Drag and drop',
+  'Без данных',
+  'С загрузской',
+];
 const regenerateData = makeData(100, 5, 3);
 const getItemLabel = (label: string) => label;
 function App() {
@@ -40,47 +84,7 @@ function App() {
             perPage={perPage}
             totalCount={tableData?.length}
             isOneLineColumn={false}
-            columns={[
-              {
-                accessorKey: 'firstName',
-                id: 'firstName',
-                header: 'Первое имя',
-                cell: (info) => info.getValue(),
-                footer: (props) => props.column.id,
-              },
-              {
-                accessorFn: (row) => row.lastName,
-                id: 'Фамилия',
-                cell: (info) => info.getValue(),
-                header: () => <span>Last Name</span>,
-                footer: (props) => props.column.id,
-              },
-              {
-                accessorKey: 'age',
-                id: 'Количество лет',
-                header: 'Age',
-                footer: (props) => props.column.id,
-              },
-
-              {
-                accessorKey: 'visits',
-                id: 'visits',
-                header: 'Визит',
-                footer: (props) => props.column.id,
-              },
-              {
-                accessorKey: 'status',
-                id: 'status',
-                header: 'Статус',
-                footer: (props) => props.column.id,
-              },
-              {
-                accessorKey: 'progress',
-                id: 'Прогресс',
-                header: 'Profile Progress',
-                footer: (props) => props.column.id,
-              },
-            ]}
+            columns={columns}
             data={tableData}
           />
         </div>
@@ -88,6 +92,20 @@ function App() {
     }
     if (value === 'Без Drag and drop') {
       return <NoDrag />;
+    }
+    if (value === 'Без данных') {
+      return (
+        <Table
+          className="wrapper"
+          onPaginationChange={onPaginationChange}
+          page={page}
+          onPerPageChange={onPerPageChange}
+          perPage={perPage}
+          totalCount={tableData?.length}
+          columns={columns}
+          data={[]}
+        />
+      );
     }
   };
 
