@@ -7,6 +7,7 @@ import { ColumnOptions } from '@/components/Table/components/column-options';
 import { ColumnContent } from '@/components/Table/components/draggable-column-header/components/column-content';
 import { ColumnResizer } from '@/components/Table/components/draggable-column-header/components/column-resizer';
 import { HeaderProvider } from '@/components/Table/components/draggable-column-header/providers/header-provider';
+import { ID_DRAG_ROW } from '@/components/Table/constants';
 
 import styles from './components/column-content/column-content.module.scss';
 
@@ -71,7 +72,9 @@ export const DraggableColumnHeader: FC<{
         dropRef(ref);
         previewRef(ref);
       }}
-      className="th"
+      className={cn('th', {
+        [styles.sticky]: header.id === ID_DRAG_ROW,
+      })}
     >
       <HeaderProvider.Provider value={{ header }}>
         <div className={styles.column}>

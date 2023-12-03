@@ -25,7 +25,7 @@ import {
 
 import { DraggableColumnHeader } from './components/draggable-column-header';
 import { DraggableRow } from './components/draggable-row';
-import { ID_DRAG_ROF } from './constants';
+import { ID_DRAG_ROW } from './constants';
 import styles from './table.module.scss';
 
 type TTableProps = {
@@ -46,7 +46,7 @@ export const Table: React.FC<TTableProps> = ({
       ? [
           {
             size: MIN_SIZE_COLUMN,
-            id: ID_DRAG_ROF,
+            id: ID_DRAG_ROW,
             header: '',
             meta: {
               isHaveMenu: false,
@@ -58,7 +58,7 @@ export const Table: React.FC<TTableProps> = ({
   }, [columns, props.isDragRow]);
   const [grouping, setGrouping] = React.useState<GroupingState>([]);
   const [columnPinning, setColumnPinning] = React.useState(
-    props.isDragRow ? { left: [ID_DRAG_ROF] } : {},
+    props.isDragRow ? { left: [ID_DRAG_ROW] } : {},
   );
   const [columnVisibility, setColumnVisibility] = React.useState({});
   const containerRef = useRef<HTMLTableSectionElement>(null);

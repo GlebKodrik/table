@@ -65,4 +65,10 @@ th {
   right: -23px;
 }
 
-
+.sticky {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: rgb(0, 113, 178);
+}

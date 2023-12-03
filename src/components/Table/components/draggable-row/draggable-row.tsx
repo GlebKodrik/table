@@ -4,7 +4,7 @@ import cn from 'classnames';
 import React, { FC } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
 
-import { ID_DRAG_ROF } from '../../constants';
+import { ID_DRAG_ROW } from '../../constants';
 import { TableCell } from '../table-cell';
 import styles from './draggable-row.module.scss';
 
@@ -26,7 +26,7 @@ export const DraggableRow: FC<{
   });
 
   const renderContent = (cell: Cell<any, unknown>) => {
-    if (cell.column.id === ID_DRAG_ROF) {
+    if (cell.column.id === ID_DRAG_ROW) {
       return (
         <div className={styles.dragRow}>
           <button
@@ -53,11 +53,12 @@ export const DraggableRow: FC<{
     >
       {row.getVisibleCells().map((cell) => (
         <div
-          ref={cell.column.id === ID_DRAG_ROF ? dropRef : null}
+          ref={cell.column.id === ID_DRAG_ROW ? dropRef : null}
           key={cell.id}
           style={{ width: cell.column.getSize() }}
           className={cn('td', styles.td, {
             [styles.isOnly]: cell.row.original?.isOnly,
+            [styles.sticky]: cell.column.id === ID_DRAG_ROW,
           })}
         >
           {renderContent(cell)}

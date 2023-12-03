@@ -6,6 +6,13 @@
 .drag-row {
   display: flex;
   align-items: center;
+  right: 0;
   justify-content: center;
 }
 
+.sticky {
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: white;
+}

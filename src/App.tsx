@@ -55,6 +55,90 @@ const columns = [
     header: 'Profile Progress',
     footer: (props) => props.column.id,
   },
+  {
+    accessorKey: 'visits',
+    id: 'visits',
+    header: 'Визит',
+    footer: (props) => props.column.id,
+    meta: {
+      dataType: 'number',
+    },
+  },
+  {
+    accessorKey: 'status',
+    id: 'status',
+    header: 'Статус',
+    footer: (props) => props.column.id,
+  },
+  {
+    accessorKey: 'progress',
+    id: 'Прогресс',
+    header: 'Profile Progress',
+    footer: (props) => props.column.id,
+  },
+  {
+    accessorKey: 'visits',
+    id: 'visits',
+    header: 'Визит',
+    footer: (props) => props.column.id,
+    meta: {
+      dataType: 'number',
+    },
+  },
+  {
+    accessorKey: 'status',
+    id: 'status',
+    header: 'Статус',
+    footer: (props) => props.column.id,
+  },
+  {
+    accessorKey: 'progress',
+    id: 'Прогресс',
+    header: 'Profile Progress',
+    footer: (props) => props.column.id,
+  },
+  {
+    accessorKey: 'visits',
+    id: 'visits',
+    header: 'Визит',
+    footer: (props) => props.column.id,
+    meta: {
+      dataType: 'number',
+    },
+  },
+  {
+    accessorKey: 'status',
+    id: 'status',
+    header: 'Статус',
+    footer: (props) => props.column.id,
+  },
+  {
+    accessorKey: 'progress',
+    id: 'Прогресс',
+    header: 'Profile Progress',
+    footer: (props) => props.column.id,
+  },
+  {
+    accessorKey: 'visits',
+    id: 'visits',
+    header: 'Визит',
+    footer: (props) => props.column.id,
+    meta: {
+      dataType: 'number',
+    },
+  },
+  {
+    accessorKey: 'status',
+    id: 'status',
+    header: 'Статус',
+    footer: (props) => props.column.id,
+  },
+  {
+    accessorKey: 'progress',
+    id: 'Прогресс',
+    header: 'Profile Progress',
+    footer: (props) => props.column.id,
+  },
 ];
 
 const items: string[] = [
