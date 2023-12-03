@@ -62,6 +62,7 @@ export const DraggableColumnHeader: FC<{
   const columnAccessorKey = (header.column.columnDef as { accessorKey: string })
     .accessorKey;
   const isPinnedLeft = header.column.getIsPinned() === 'left';
+  const isPinnedRight = header.column.getIsPinned() === 'right';
   return (
     <div
       {...{
@@ -80,7 +81,9 @@ export const DraggableColumnHeader: FC<{
         previewRef(ref);
       }}
       className={cn('th', {
-        [styles.sticky]: isPinnedLeft,
+        [styles.sticky]: isPinnedLeft || isPinnedRight,
+        [styles.stickyLeft]: isPinnedLeft,
+        [styles.stickyRight]: isPinnedRight,
       })}
     >
       <HeaderProvider.Provider value={{ header }}>

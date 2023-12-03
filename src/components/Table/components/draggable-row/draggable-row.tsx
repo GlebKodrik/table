@@ -60,6 +60,7 @@ export const DraggableRow: FC<{
       {row.getVisibleCells().map((cell) => {
         const isDragRow = cell.column.id === ID_DRAG_ROW;
         const isPinnedLeft = cell.column.getIsPinned() === 'left';
+        const isPinnedRight = cell.column.getIsPinned() === 'right';
         return (
           <div
             ref={isDragRow ? dropRef : null}
@@ -72,7 +73,9 @@ export const DraggableRow: FC<{
             }}
             className={cn('td', styles.td, {
               [styles.isOnly]: cell.row.original?.isOnly,
-              [styles.sticky]: isPinnedLeft,
+              [styles.sticky]: isPinnedLeft || isPinnedRight,
+              [styles.stickyLeft]: isPinnedLeft,
+              [styles.stickyRight]: isPinnedRight,
             })}
           >
             {renderContent(cell)}
