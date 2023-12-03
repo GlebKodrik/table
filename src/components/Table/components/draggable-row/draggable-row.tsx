@@ -47,7 +47,6 @@ export const DraggableRow: FC<{
 
   return (
     <div
-      key={row.id}
       className="tr"
       ref={previewRef}
       style={{ opacity: isDragging ? 0.5 : 1 }}

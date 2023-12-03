@@ -174,6 +174,7 @@ export const Table: React.FC<TTableProps> = ({
               const row = rows[virtualRow.index] as Row<any>;
               return (
                 <DraggableRow
+                  key={row.id}
                   row={row}
                   reorderRow={reorderRow}
                 />
