@@ -60,7 +60,6 @@ export const DraggableRow: FC<{
       {row.getVisibleCells().map((cell) => {
         const isDragRow = cell.column.id === ID_DRAG_ROW;
         const isPinnedLeft = cell.column.getIsPinned() === 'left';
-
         return (
           <div
             ref={isDragRow ? dropRef : null}

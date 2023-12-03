@@ -1,8 +1,8 @@
 export const sumSizesBeforeId = (
-  array: { id: string; getSize: () => number }[],
+  array: { column: { id: string }; getSize: () => number }[],
   targetId: string,
 ) => {
-  const targetIndex = array.findIndex((item) => item?.id === targetId);
+  const targetIndex = array.findIndex((item) => item?.column?.id === targetId);
   if (targetIndex <= 0) return 0;
   return array
     .slice(0, targetIndex)

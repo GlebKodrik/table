@@ -8,6 +8,45 @@ import { makeData } from '@/components/utils/makeData';
 const regenerateData = makeData(100, 5, 3);
 const columns = [
   {
+    accessorKey: 'test1',
+    id: 'test1',
+    header: 'Визит',
+    footer: (props) => props.column.id,
+  },
+  {
+    accessorKey: 'test2',
+    id: 'tes2',
+    header: 'Статус',
+    footer: (props) => props.column.id,
+  },
+  {
+    accessorKey: 'test3',
+    id: 'test3',
+    header: 'Profile Progress',
+    footer: (props) => props.column.id,
+  },
+  {
+    accessorKey: 'test4',
+    id: 'test4',
+    size: 300,
+    header: 'Визит',
+    footer: (props) => props.column.id,
+  },
+  {
+    accessorKey: 'test5',
+    id: 'test5',
+    size: 300,
+    header: 'Статус',
+    footer: (props) => props.column.id,
+  },
+  {
+    accessorKey: 'test6',
+    id: 'test6',
+    size: 300,
+    header: 'Profile Progress',
+    footer: (props) => props.column.id,
+  },
+  {
     header: 'Имя',
     columns: [
       {
