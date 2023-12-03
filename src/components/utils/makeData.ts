@@ -25,6 +25,13 @@ const newPerson = (): Person => {
     lastName: faker.person.lastName(),
     age: faker.number.int(40),
     visits: faker.number.int(1000),
+    test1: faker.person.lastName(),
+    test2: faker.person.lastName(),
+    test3: faker.person.lastName(),
+    test4: faker.person.lastName(),
+    test5: faker.person.lastName(),
+    test6: faker.person.lastName(),
+    test7: faker.person.lastName(),
     progress: faker.number.int(100),
     status: faker.helpers.shuffle<Person['status']>([
       'relationship',
