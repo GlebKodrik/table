@@ -8,6 +8,35 @@ import { makeData } from '@/components/utils/makeData';
 const regenerateData = makeData(100, 5, 3);
 const columns = [
   {
+    header: 'Имя',
+    columns: [
+      {
+        accessorKey: 'firstName',
+        meta: {
+          isGroup: true,
+        },
+        size: 300,
+        header: ({ table }) => (
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <button
+              {...{
+                onClick: table.getToggleAllRowsExpandedHandler(),
+              }}
+            >
+              {table.getIsAllRowsExpanded() ? '👇' : '👉'}
+            </button>{' '}
+            <div title="Первоначальное имя">Первоначальное имя</div>
+          </div>
+        ),
+      },
+      {
+        accessorFn: (row) => row.lastName,
+        id: 'lastName',
+        header: 'Фамилия',
+      },
+    ],
+  },
+  {
     accessorKey: 'test1',
     id: 'test1',
     header: 'Визит',
@@ -46,35 +75,7 @@ const columns = [
     header: 'Profile Progress',
     footer: (props) => props.column.id,
   },
-  {
-    header: 'Имя',
-    columns: [
-      {
-        accessorKey: 'firstName',
-        meta: {
-          isGroup: true,
-        },
-        size: 300,
-        header: ({ table }) => (
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <button
-              {...{
-                onClick: table.getToggleAllRowsExpandedHandler(),
-              }}
-            >
-              {table.getIsAllRowsExpanded() ? '👇' : '👉'}
-            </button>{' '}
-            <div title="Первоначальное имя">Первоначальное имя</div>
-          </div>
-        ),
-      },
-      {
-        accessorFn: (row) => row.lastName,
-        id: 'lastName',
-        header: 'Фамилия',
-      },
-    ],
-  },
+
   {
     header: 'Информация',
     columns: [

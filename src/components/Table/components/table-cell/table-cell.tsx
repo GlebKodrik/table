@@ -70,7 +70,8 @@ export const TableCell: React.FC<TTableBodyProps> = ({ cell }) => {
   return (
     <div
       className={cn(styles.collapseWrapper, {
-        [styles.align]: dataType && getIsNumber(dataType),
+        [styles.align]:
+          !cell.getIsGrouped() && dataType && getIsNumber(dataType),
       })}
       style={{
         paddingLeft: isGroup ? `${cell.row.depth * 2}rem` : '',
