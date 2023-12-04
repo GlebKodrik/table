@@ -22,9 +22,12 @@ export const DraggableRow: FC<{
     return table.getRightHeaderGroups()?.[0]?.headers.slice().reverse();
   }, [table.getRightHeaderGroups()]);
 
-  const [, dropRef] = useDrop({
+  const [{ isActive }, dropRef] = useDrop({
     accept: 'row',
     drop: (draggedRow: Row<any>) => reorderRow(draggedRow.index, row.index),
+    collect: (monitor) => ({
+      isActive: monitor.canDrop() && monitor.isOver(),
+    }),
   });
 
   const [{ isDragging }, dragRef, previewRef] = useDrag({
@@ -57,9 +60,11 @@ export const DraggableRow: FC<{
 
   return (
     <div
-      className="tr"
+      className={cn('tr', { [styles.dropItem]: isActive })}
       ref={previewRef}
-      style={{ opacity: isDragging ? 0.5 : 1 }}
+      style={{
+        opacity: isDragging ? 0.5 : 1,
+      }}
     >
       {row.getVisibleCells().map((cell) => {
         const isDragRow = cell.column.id === ID_DRAG_ROW;

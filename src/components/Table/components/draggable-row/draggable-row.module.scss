@@ -30,3 +30,12 @@
 .draggable-icon svg {
   fill: #000;
 }
+
+.drop-item {
+  box-shadow: -3px 0px 8px 3px rgba(0,0,0,0.1);
+}
+
+.is-only {
+  box-shadow: none;
+  background: var(--bg-stripe, rgba(0, 32, 51, 0.05));
+}
