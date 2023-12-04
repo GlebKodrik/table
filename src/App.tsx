@@ -125,10 +125,10 @@ function App() {
   const renderTable = () => {
     if (value === 'C Drag and Drop (и drag and drop строк)') {
       return (
-        <div>
+        <div className="test">
           <Table
-            isDragRow
             className="wrapper"
+            isDragRow
             onPaginationChange={onPaginationChange}
             page={page}
             onPerPageChange={onPerPageChange}

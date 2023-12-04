@@ -12,6 +12,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Theme
         preset={presetGpnDefault}
         id="theme"
+        className="wrapper"
       >
         <App />
       </Theme>

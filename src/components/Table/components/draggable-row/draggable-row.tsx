@@ -18,6 +18,10 @@ export const DraggableRow: FC<{
     return table.getLeftHeaderGroups()?.[0]?.headers;
   }, [table.getLeftHeaderGroups()]);
 
+  const rightColumn = useMemo(() => {
+    return table.getRightHeaderGroups()?.[0]?.headers.slice().reverse();
+  }, [table.getRightHeaderGroups()]);
+
   const [, dropRef] = useDrop({
     accept: 'row',
     drop: (draggedRow: Row<any>) => reorderRow(draggedRow.index, row.index),
@@ -61,6 +65,7 @@ export const DraggableRow: FC<{
         const isDragRow = cell.column.id === ID_DRAG_ROW;
         const isPinnedLeft = cell.column.getIsPinned() === 'left';
         const isPinnedRight = cell.column.getIsPinned() === 'right';
+
         return (
           <div
             ref={isDragRow ? dropRef : null}
@@ -69,6 +74,9 @@ export const DraggableRow: FC<{
               width: cell.column.getSize(),
               left: isPinnedLeft
                 ? sumSizesBeforeId(leftColumn, cell.column.id)
+                : undefined,
+              right: isPinnedRight
+                ? sumSizesBeforeId(rightColumn, cell.column.id)
                 : undefined,
             }}
             className={cn('td', styles.td, {

@@ -32,6 +32,10 @@ export const DraggableColumnHeader: FC<{
     return table.getLeftHeaderGroups()?.[0]?.headers;
   }, [table.getLeftHeaderGroups()]);
 
+  const rightColumn = useMemo(() => {
+    return table.getRightHeaderGroups()?.[0]?.headers.slice().reverse();
+  }, [table.getRightHeaderGroups()]);
+
   const { getState, setColumnOrder } = table;
   const { columnOrder } = getState();
   const { column } = header;
@@ -63,6 +67,7 @@ export const DraggableColumnHeader: FC<{
     .accessorKey;
   const isPinnedLeft = header.column.getIsPinned() === 'left';
   const isPinnedRight = header.column.getIsPinned() === 'right';
+
   return (
     <div
       {...{
@@ -73,6 +78,9 @@ export const DraggableColumnHeader: FC<{
           opacity: isDragging ? 0.5 : 1,
           left: isPinnedLeft
             ? sumSizesBeforeId(leftColumn, header.column.id)
+            : undefined,
+          right: isPinnedRight
+            ? sumSizesBeforeId(rightColumn, header.column.id)
             : undefined,
         },
       }}
