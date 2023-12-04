@@ -1,4 +1,4 @@
-import { IconHamburger } from '@consta/uikit/IconHamburger';
+import { IconDraggable } from '@consta/icons/IconDraggable';
 import { Cell, Row, Table } from '@tanstack/react-table';
 import cn from 'classnames';
 import React, { FC, useMemo } from 'react';
@@ -44,9 +44,9 @@ export const DraggableRow: FC<{
             ref={dragRef}
             className={styles.button}
           >
-            <IconHamburger
-              size="s"
-              view="ghost"
+            <IconDraggable
+              className={styles.draggableIcon}
+              size="xs"
             />
           </button>
         </div>
